@@ -1,0 +1,43 @@
+{{/* Returns html img tag with src and srcset and alt */}}
+
+{{/* Adapted from: https://laurakalbag.com/processing-responsive-images-with-hugo/ */}}
+
+{{$defaultThumbnail := resources.Get "images/default-thumbnail.webp"}}
+
+{{/* set image sizes, these are hardcoded for now, x dictates that images are resized to this width */}}
+{{ $tinyw := default "500x" }}
+{{ $smallw := default "800x" }}
+{{ $mediumw := default "1200x" }}
+{{ $largew := default "1500x" }}
+
+{{/* resize the src image to the given sizes */}}
+{{ .Scratch.Set "tiny" ($defaultThumbnail.Resize $tinyw) }}
+{{ .Scratch.Set "small" ($defaultThumbnail.Resize $smallw) }}
+{{ .Scratch.Set "medium" ($defaultThumbnail.Resize $mediumw) }}
+{{ .Scratch.Set "large" ($defaultThumbnail.Resize $largew) }}
+
+{{/* add the processed images to the scratch */}}
+{{ $tiny := .Scratch.Get "tiny" }}
+{{ $small := .Scratch.Get "small" }}
+{{ $medium := .Scratch.Get "medium" }}
+{{ $large := .Scratch.Get "large" }}
+
+{{/* only use images smaller than or equal to the src (original) image size, as Hugo will upscale small images */}}
+{{/* set the sizes attribute to (min-width: 35em) 1200px, 100vw unless overridden in partial */}}
+<img class="card-image"
+  sizes="(min-width: 35em) 1200px, 100vw"
+  srcset='
+  {{ if ge $defaultThumbnail.Width "500" }}
+    {{ with $tiny.RelPermalink }}{{.}} 500w{{ end }}
+  {{ end }}
+  {{ if ge $defaultThumbnail.Width "800" }}
+    {{ with $small.RelPermalink }}, {{.}} 800w{{ end }}
+  {{ end }}
+  {{ if ge $defaultThumbnail.Width "1200" }}
+    {{ with $medium.RelPermalink }}, {{.}} 1200w{{ end }}
+  {{ end }}
+  {{ if ge $defaultThumbnail.Width "1500" }}
+    {{ with $large.RelPermalink }}, {{.}} 1500w {{ end }}
+  {{ end }}'
+    src="{{ $defaultThumbnail.RelPermalink }}"
+  {{ with $defaultThumbnail.Name }}alt="{{.}}"{{ else }}alt=""{{ end }}>

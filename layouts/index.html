@@ -5,7 +5,8 @@
       <a class="card-link" href="{{ .Permalink }}">
         <div class="card">
             <div class="card-image-container">
-                <img class="card-image" src="images/default-thumbnail.webp" alt="thumbnail">
+              {{ partial "helpers/responsimage.html" . }}
+                <!-- <img class="card-image" src="{{resources.Get "images/default-thumbnail.webp"}}" alt="thumbnail"> -->
             </div>
             <h3 class="card-title" >{{ .Title }}</h3>
         </div>
