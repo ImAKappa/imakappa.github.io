@@ -29,13 +29,12 @@ a.musescore-link {
 
 a.back-link {
   background-color: none;
+  color: theme-var($--text-colour);
   padding: 0.2rem;
   &:hover,
   &:focus,
   &:active {
     margin-right: 1.4rem;
-  }
-  &:visited {
     color: theme-var($--green-100);
   }
 }
