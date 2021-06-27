@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{with (default .Site.Title .Page.Title)}}<title>{{ . }}</title>{{end}}
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" media="print" onload="this.media='all'; this.onload=null;">
     {{$style := resources.Get "scss/main.scss" | resources.ToCSS | resources.Minify}}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
     {{partial "favicon.html"}}
