@@ -1,0 +1,10 @@
+baseURL = "https://imakappa.github.io/"
+languageCode = "en-us"
+title = "ImAKappa"
+# theme = ""
+enableEmoji = true
+googleAnalytics = "G-0MHDZRJ48R"
+
+[module]
+  [module.hugoVersion]
+    extended = true

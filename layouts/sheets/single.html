@@ -1,0 +1,13 @@
+{{ define "main"}}
+  {{with (default $.Site.Title .Title)}}<h1>{{.}}</h1>{{end}}
+  {{with (.Params.author)}}<h3>{{.}}</h3>{{end}}
+  <div class="container">
+    <div class="links">
+      {{ partial "sheets/getPDF.html" . }}
+      {{ partial "sheets/musescore.html" . }}
+      {{ partial "sheets/youtube.html" . }}
+    </div>
+    {{ .Content }}
+  </div>
+  <a href="/sheets">Back to sheets</a>
+{{ end }}

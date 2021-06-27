@@ -1,0 +1,17 @@
+a.pdf-link {
+  background-color: theme-var($--surface-0);
+  color: theme-var($--text-colour-sub);
+  transition: all 0.3s ease;
+  &:hover {
+    color: theme-var($--text-colour);
+  }
+}
+
+a.musescore-link {
+  background-color: theme-var($--musescore);
+  color: theme-var($--text-colour-sub);
+  transition: all 0.3s ease;
+  &:hover {
+    color: theme-var($--text-colour);
+  }
+}

@@ -1,0 +1,48 @@
+header {
+  text-align: center;
+  margin: 2em;
+}
+
+h1 a.title {
+  font-size: 3rem;
+  color: theme-var($--green-100);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  &:hover {
+    color: theme-var($--green-50);
+  }
+}
+
+.navigation {
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0 2em;
+  }
+
+  a {
+    background-color: theme-var($--surface-0);
+    color: theme-var($--text-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: theme-var($--surface-1);
+    }
+  }
+
+  a.youtube {
+    background-color: theme-var($--youtube);
+  }
+  
+  a.musescore {
+    background-color: theme-var($--musescore);
+  }
+}
+

@@ -1,0 +1,5 @@
+{{ define "main" }}
+{{ $title := default $.Site.Title $.Page.Title}}
+  <h1>{{$title}}</h1>
+  {{ .Content }}
+{{ end }}
