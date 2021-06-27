@@ -1,17 +1,41 @@
+.sheet-title {
+  text-align: center;
+}
+
+a {
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
 a.pdf-link {
   background-color: theme-var($--surface-0);
   color: theme-var($--text-colour-sub);
-  transition: all 0.3s ease;
-  &:hover {
+  &:hover,
+  &:focus {
     color: theme-var($--text-colour);
+    transform: translateY(-4px);
   }
 }
 
 a.musescore-link {
   background-color: theme-var($--musescore);
   color: theme-var($--text-colour-sub);
-  transition: all 0.3s ease;
-  &:hover {
+  &:hover,
+  &:focus {
     color: theme-var($--text-colour);
+    transform: translateY(-4px);
+  }
+}
+
+a.back-link {
+  background-color: none;
+  padding: 0.2rem;
+  &:hover,
+  &:focus,
+  &:active {
+    margin-right: 1.4rem;
+  }
+  &:visited {
+    color: theme-var($--green-100);
   }
 }

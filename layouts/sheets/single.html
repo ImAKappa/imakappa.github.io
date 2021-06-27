@@ -1,6 +1,8 @@
 {{ define "main"}}
-  {{with (default $.Site.Title .Title)}}<h1>{{.}}</h1>{{end}}
-  {{with (.Params.author)}}<h3>{{.}}</h3>{{end}}
+{{ $backIcon := resources.Get "images/icons/outline_arrow_back_ios_white_24dp.png" }}
+  <div class="container">
+  {{with (default $.Site.Title .Title)}}<h1 class="sheet-title">{{.}}</h1>{{end}}
+  {{with (.Params.author)}}<h3 class="sheet-author">{{.}}</h3>{{end}}
   <div class="container">
     <div class="links">
       {{ partial "sheets/getPDF.html" . }}
@@ -9,5 +11,6 @@
     </div>
     {{ .Content }}
   </div>
-  <a href="/sheets">Back to sheets</a>
+  <a href="/sheets" class="back-link"><img src="{{ $backIcon.RelPermalink }}" alt="">Back to sheets</a>
+  </div>
 {{ end }}

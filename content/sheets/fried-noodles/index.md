@@ -1,7 +1,7 @@
 +++
 title = "Fried Noodles"
 author = "Filthy Frank"
-date = 2021-06-22T19:36:51-04:00
+date = 2020-05-09T19:36:51-04:00
 draft = false
 
 musescore = "imakappa/fried-noodles-pink-guy-piano-imakappa"

@@ -1,7 +1,7 @@
 +++
 title = "Giorno Giovanna's Moonlight Sonata"
 author = "Yugo Kanno & L. v. Beethoven"
-date = 2021-06-21T22:31:42-04:00
+date = 2020-04-25T22:31:42-04:00
 draft = false
 
 musescore = "imakappa/giorno-giovanna-s-moonlight-sonata-arr-imakappa"
