@@ -5,7 +5,7 @@
   {{ range . }}
     {{ if (in .MediaType.Suffixes "pdf") }}
     <div class="container">
-      <a class="btn pdf-link" href="{{ .RelPermalink }}" alt="PDF of {{ .Name }}" target="_blank">
+      <a class="btn pdf-link" href="{{ .RelPermalink }}" alt="PDF of {{ .Name }}" target="_blank" rel="noopener noreferrer">
         {{ .Title }} (PDF)
         <img src="{{ $downloadIcon.RelPermalink }}" alt="">
       </a>
