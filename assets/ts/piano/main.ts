@@ -1,12 +1,14 @@
 // Based on tutorial from Web Dev Simplified:  https://www.youtube.com/watch?v=vjco5yKZpU8
 
-import { Direction } from "./test";
+import { MyClass } from "./MyClass";
 
 const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
 const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j']
 
+let testInstance = new MyClass();
+
 console.log('Piano');
-console.log(Direction.Down, Direction.Up);
+console.log(testInstance.sayHello("Hello"));
 const keys = document.querySelectorAll('.key');
 const whiteKeys = document.querySelectorAll('.key.white');
 const blackKeys = document.querySelectorAll('.key.black');
