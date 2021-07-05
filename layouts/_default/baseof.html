@@ -2,6 +2,8 @@
 <html lang="en-GB">
   {{- partial "head.html" . -}}
   <body>
+    {{ $icon := resources.Get "svg/heroicons/outline/search.svg" }}
+    {{ $icon.Content | safeHTML }}
     {{- partial "header.html" . -}}
     <main class="content">
     {{- block "main" . }}{{- end }}

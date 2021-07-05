@@ -1,5 +1,5 @@
 {{ define "main"}}
-{{ $backIcon := resources.Get "images/icons/outline_arrow_back_ios_white_24dp.png" }}
+{{ $backIcon := resources.Get "svg/heroicons/solid/chevron-left.svg" }}
   <div class="container">
   {{with (default $.Site.Title .Title)}}<h1 class="sheet-title">{{.}}</h1>{{end}}
   {{with (.Params.author)}}<h3 class="sheet-author">{{.}}</h3>{{end}}
@@ -11,6 +11,6 @@
     </div>
     {{ .Content }}
   </div>
-  <a href="/sheets" class="back-link"><img src="{{ $backIcon.RelPermalink }}" alt="">Back to sheets</a>
+  <a href="/sheets" class="back-link">{{ $backIcon.Content | safeHTML }}Back to sheets</a>
   </div>
 {{ end }}

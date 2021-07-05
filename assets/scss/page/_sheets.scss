@@ -5,6 +5,14 @@
 a {
   transition: all 0.3s ease;
   text-align: center;
+
+  svg {
+    padding: 0.1rem;
+    transition: all 0.3s ease;
+    path {
+    fill: theme-var($--text-colour-sub);
+    }
+  }
 }
 
 a.pdf-link {
@@ -13,8 +21,13 @@ a.pdf-link {
   &:hover,
   &:focus {
     color: theme-var($--text-colour);
+    svg path {
+      fill: theme-var($--text-colour);
+    }
     transform: translateY(-4px);
   }
+
+
 }
 
 a.musescore-link {

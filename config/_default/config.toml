@@ -8,3 +8,6 @@ googleAnalytics = "G-0MHDZRJ48R"
 [module]
   [module.hugoVersion]
     extended = true
+
+  [[module.imports]]
+  path = "github.com/gohugoio/hugo-mod-heroicons"
