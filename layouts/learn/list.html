@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section>
+  <div class="container">
+    {{ .Content }}
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="grid">
+      {{ range .Pages}}
+        <a class="card-link" href="{{ .Permalink }}">
+          <div class="card">
+            <!-- <div class="card-image-container">
+                <img class="card-image" src="images/default-thumbnail.webp" alt="thumbnail">
+            </div> -->
+            <p class="card-title" >{{ .Title }}</p>
+          </div>
+        </a>
+      {{ end}}
+    </div>
+  </div>
+</section>
+{{ end }}

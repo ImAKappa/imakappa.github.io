@@ -1,0 +1,46 @@
+// Colours
+
+$--white-key-outline: #333;
+$--white-key-active: #CCC;
+$--black-key-active: #333;
+
+.piano-body {
+  background-color: #143F6B;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.piano {
+  display: flex;
+
+}
+
+.key {
+  height: calc(var(--width) * 4);
+  width: var(--width);
+}
+
+.white {
+  --width: 100px;
+  background-color: theme-var($--white);
+  border: 1px solid $--white-key-outline;
+}
+
+.white.active {
+  background-color: $--white-key-active;
+}
+
+.black {
+  --width: 60px;
+  background-color: theme-var($--black);
+  margin-left: calc(var(--width) / -2);
+  margin-right: calc(var(--width) / -2);
+  z-index: 2;
+}
+
+.black.active {
+  background-color: $--black-key-active;
+}

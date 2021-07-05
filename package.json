@@ -1,0 +1,21 @@
+{
+  "name": "imakappa.github.io",
+  "version": "1.0.0",
+  "description": "Github Pages",
+  "main": "babel.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-kappa:ImAKappa/imakappa.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5"
+  }
+}
