@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
   {{- partial "head.html" . -}}
-  {{ $typescript := resources.Get "ts/piano.ts" | babel }}
+  {{ $typescript := resources.Get "js/piano/main.ts" | js.Build }}
   {{ $js := slice $typescript | resources.Concat "js/piano.js" }}
   <script src="{{ $js.Permalink }}" defer></script>
 </head>
