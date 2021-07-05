@@ -1,14 +1,31 @@
 // Based on tutorial from Web Dev Simplified:  https://www.youtube.com/watch?v=vjco5yKZpU8
 
+// Node_module tone.js test
+import * as Tone from 'tone';
+
+//attach a click listener to a play button
+document.querySelector('.tone-test')?.addEventListener('click', async () => {
+	await Tone.start();
+	console.log('audio is ready');
+  //create a synth and connect it to the main output (your speakers)
+  const synth = new Tone.Synth().toDestination();
+
+  //play a middle 'C' for the duration of an 8th note
+  synth.triggerAttackRelease("C4", "8n");
+});
+
+// Import test
 import { MyClass } from "./MyClass";
 
+let testInstance = new MyClass();
+console.log(testInstance.sayHello("Hello"));
+
+// Piano App
 const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
 const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j']
 
-let testInstance = new MyClass();
-
 console.log('Piano');
-console.log(testInstance.sayHello("Hello"));
+
 const keys = document.querySelectorAll('.key');
 const whiteKeys = document.querySelectorAll('.key.white');
 const blackKeys = document.querySelectorAll('.key.black');
