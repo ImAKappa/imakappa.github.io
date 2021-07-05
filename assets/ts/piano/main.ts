@@ -7,12 +7,23 @@ import * as Tone from 'tone';
 document.querySelector('.tone-test')?.addEventListener('click', async () => {
 	await Tone.start();
 	console.log('audio is ready');
-  //create a synth and connect it to the main output (your speakers)
-  const synth = new Tone.Synth().toDestination();
 
-  //play a middle 'C' for the duration of an 8th note
-  synth.triggerAttackRelease("C4", "8n");
+  const sampler = new Tone.Sampler({
+    urls: {
+      "C4": "C4.mp3",
+      "D#4": "Ds4.mp3",
+      "F#4": "Fs4.mp3",
+      "A4": "A4.mp3",
+    },
+    release: 1,
+    baseUrl: "https://tonejs.github.io/audio/salamander/",
+  }).toDestination();
+  
+  Tone.loaded().then(() => {
+    sampler.triggerAttackRelease(["Eb4", "G4", "Bb4"], 4);
+  })
 });
+
 
 // Import test
 import { MyClass } from "./MyClass";

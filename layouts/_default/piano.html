@@ -7,37 +7,22 @@
   <script src="{{ $js.Permalink }}" defer></script>
 </head>
 <body class="piano-body">
-  <button class="tone-test">Play tone</button>
+  <button class="tone-test">Click to Start</button>
 
   <div class="piano">
-    <div data-note="C" class="key white"></div>
-    <div data-note="Db" class="key black"></div>
-    <div data-note="D" class="key white"></div>
-    <div data-note="Eb" class="key black"></div>
-    <div data-note="E" class="key white"></div>
-    <div data-note="F" class="key white"></div>
-    <div data-note="Gb" class="key black"></div>
-    <div data-note="G" class="key white"></div>
-    <div data-note="Ab" class="key black"></div>
-    <div data-note="A" class="key white"></div>
-    <div data-note="Bb" class="key black"></div>
-    <div data-note="B" class="key white"></div>
-    <!-- <div data-note="C" class="key white"></div> -->
-  
-    <audio id="C">
-      <source src="{{ ($.Page.Resources.GetMatch "notes/C.mp3").Permalink }}">
-    </audio>
-    <audio id="Db" src="{{ ($.Page.Resources.GetMatch "notes/Db.mp3").Permalink }}"></audio>
-    <audio id="D" src="{{ ($.Page.Resources.GetMatch "notes/D.mp3").Permalink }}"></audio>
-    <audio id="Eb" src="{{ ($.Page.Resources.GetMatch "notes/Eb.mp3").Permalink }}"></audio>
-    <audio id="E" src="{{ ($.Page.Resources.GetMatch "notes/E.mp3").Permalink }}"></audio>
-    <audio id="F" src="{{ ($.Page.Resources.GetMatch "notes/F.mp3").Permalink }}"></audio>
-    <audio id="Gb" src="{{ ($.Page.Resources.GetMatch "notes/Gb.mp3").Permalink }}"></audio>
-    <audio id="G" src="{{ ($.Page.Resources.GetMatch "notes/G.mp3").Permalink }}"></audio>
-    <audio id="Ab" src="{{ ($.Page.Resources.GetMatch "notes/Ab.mp3").Permalink }}"></audio>
-    <audio id="A" src="{{ ($.Page.Resources.GetMatch "notes/A.mp3").Permalink }}"></audio>
-    <audio id="Bb" src="{{ ($.Page.Resources.GetMatch "notes/Bb.mp3").Permalink }}"></audio>
-    <audio id="B" src="{{ ($.Page.Resources.GetMatch "notes/B.mp3").Permalink }}"></audio>
+    <div data-note="C4" class="key white"></div>
+    <div data-note="Db4" class="key black"></div>
+    <div data-note="D4" class="key white"></div>
+    <div data-note="Eb4" class="key black"></div>
+    <div data-note="E4" class="key white"></div>
+    <div data-note="F4" class="key white"></div>
+    <div data-note="Gb4" class="key black"></div>
+    <div data-note="G4" class="key white"></div>
+    <div data-note="Ab4" class="key black"></div>
+    <div data-note="A4" class="key white"></div>
+    <div data-note="Bb4" class="key black"></div>
+    <div data-note="B4" class="key white"></div>
+    <div data-note="C4" class="key white"></div>
   </div>
 </body>
 </html>
