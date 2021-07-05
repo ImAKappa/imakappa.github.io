@@ -7,22 +7,24 @@
   <script src="{{ $js.Permalink }}" defer></script>
 </head>
 <body class="piano-body">
-  <button class="tone-test">Click to Start</button>
+  <button class="audio-setup">Click to Start</button>
 
   <div class="piano">
-    <div data-note="C4" class="key white"></div>
-    <div data-note="Db4" class="key black"></div>
-    <div data-note="D4" class="key white"></div>
-    <div data-note="Eb4" class="key black"></div>
-    <div data-note="E4" class="key white"></div>
-    <div data-note="F4" class="key white"></div>
-    <div data-note="Gb4" class="key black"></div>
-    <div data-note="G4" class="key white"></div>
-    <div data-note="Ab4" class="key black"></div>
-    <div data-note="A4" class="key white"></div>
-    <div data-note="Bb4" class="key black"></div>
-    <div data-note="B4" class="key white"></div>
-    <div data-note="C4" class="key white"></div>
+    {{ range $sequence :=  (seq 3 5) }}
+      <div data-note="C{{ $sequence }}" class="key white"></div>
+      <div data-note="C#{{ $sequence }}" class="key black"></div>
+      <div data-note="D{{ $sequence }}" class="key white"></div>
+      <div data-note="D#{{ $sequence }}" class="key black"></div>
+      <div data-note="E{{ $sequence }}" class="key white"></div>
+      <div data-note="F{{ $sequence }}" class="key white"></div>
+      <div data-note="F#{{ $sequence }}" class="key black"></div>
+      <div data-note="G{{ $sequence }}" class="key white"></div>
+      <div data-note="G#{{ $sequence }}" class="key black"></div>
+      <div data-note="A{{ $sequence }}" class="key white"></div>
+      <div data-note="A#{{ $sequence }}" class="key black"></div>
+      <div data-note="B{{ $sequence }}" class="key white"></div>
+    {{ end }}
+    <div data-note="C6" class="key white"></div>
   </div>
 </body>
 </html>

@@ -1,67 +1,68 @@
 // Based on tutorial from Web Dev Simplified:  https://www.youtube.com/watch?v=vjco5yKZpU8
 
-// Node_module tone.js test
 import * as Tone from 'tone';
+import { Piano } from "./Piano";
+import { PianoInputHandler } from './PianoInputHandler';
 
-//attach a click listener to a play button
-document.querySelector('.tone-test')?.addEventListener('click', async () => {
+//SETUP: attach a click listener to a play button
+document.querySelector('.audio-setup')?.addEventListener('click', async () => {
 	await Tone.start();
 	console.log('audio is ready');
-
-  const sampler = new Tone.Sampler({
-    urls: {
-      "C4": "C4.mp3",
-      "D#4": "Ds4.mp3",
-      "F#4": "Fs4.mp3",
-      "A4": "A4.mp3",
-    },
-    release: 1,
-    baseUrl: "https://tonejs.github.io/audio/salamander/",
-  }).toDestination();
-  
-  Tone.loaded().then(() => {
-    sampler.triggerAttackRelease(["Eb4", "G4", "Bb4"], 4);
-  })
 });
 
+const pianoSampler = new Tone.Sampler({
+  urls: {
+    "C4": "C4.mp3",
+    "D#4": "Ds4.mp3",
+    "F#4": "Fs4.mp3",
+    "A4": "A4.mp3",
+    "C5": "C5.mp3",
+    "D#5": "Ds5.mp3",
+    "F#5": "Fs5.mp3",
+    "A5": "A5.mp3",
+    "C6": "C6.mp3",
+  },
+  release: 1,
+  baseUrl: "salamander/",
+}).toDestination();
 
-// Import test
-import { MyClass } from "./MyClass";
+//SETUP: Get keys from DOM
+console.log("Grabbing keys from DOM");
+const keys = document.querySelectorAll('.key');
 
-let testInstance = new MyClass();
-console.log(testInstance.sayHello("Hello"));
+//SETUP: Initialize piano
+console.log('Setting up Piano');
+let piano = new Piano(pianoSampler);
+let pianoInputHandler = new PianoInputHandler(piano, keys);
+
+pianoInputHandler.init();
+
 
 // Piano App
-const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
-const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j']
+// const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
+// const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j']
 
-console.log('Piano');
 
-const keys = document.querySelectorAll('.key');
-const whiteKeys = document.querySelectorAll('.key.white');
-const blackKeys = document.querySelectorAll('.key.black');
+// const whiteKeys = document.querySelectorAll('.key.white');
+// const blackKeys = document.querySelectorAll('.key.black');
 
-keys.forEach(key => {
-  key.addEventListener('click', () => playNote(key));
-});
+// document.addEventListener('keydown', e => {
+//   if (e.repeat) return;
+//   const key = e.key;
+//   const whiteKeyIndex = WHITE_KEYS.indexOf(key);
+//   const blackKeyIndex = BLACK_KEYS.indexOf(key);
 
-document.addEventListener('keydown', e => {
-  if (e.repeat) return;
-  const key = e.key;
-  const whiteKeyIndex = WHITE_KEYS.indexOf(key);
-  const blackKeyIndex = BLACK_KEYS.indexOf(key);
+//   if (whiteKeyIndex > -1) playNote(whiteKeys[whiteKeyIndex]);
+//   if (blackKeyIndex > -1) playNote(blackKeys[blackKeyIndex]);
+// });
 
-  if (whiteKeyIndex > -1) playNote(whiteKeys[whiteKeyIndex]);
-  if (blackKeyIndex > -1) playNote(blackKeys[blackKeyIndex]);
-});
-
-function playNote(key) {
-  console.log(`Clicked ${key.dataset.note} key`);
-  const noteAudio = document.getElementById(key.dataset.note) as HTMLAudioElement;
-  noteAudio.currentTime = 0;
-  noteAudio.play();
-  key.classList.add('active');
-  noteAudio.addEventListener('ended', () => {
-    key.classList.remove('active');
-  });
-}
+// function playNote(key) {
+//   console.log(`Clicked ${key.dataset.note} key`);
+//   const noteAudio = document.getElementById(key.dataset.note);
+//   noteAudio.currentTime = 0;
+//   noteAudio.play();
+//   key.classList.add('active');
+//   noteAudio.addEventListener('ended', () => {
+//     key.classList.remove('active');
+//   });
+// }
