@@ -2,8 +2,8 @@
 <html lang="en-GB">
 <head>
   {{- partial "head.html" . -}}
-  {{ $typescript := resources.Get "js/piano/main.ts" | js.Build }}
-  {{ $js := slice $typescript | resources.Concat "js/piano.js" }}
+  {{ $ts := resources.Get "js/piano/main.ts" | js.Build }}
+  {{ $js := slice $ts | resources.Concat "js/piano.js" }}
   <script src="{{ $js.Permalink }}" defer></script>
 </head>
 <body class="piano-body">
