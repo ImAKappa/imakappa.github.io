@@ -24,6 +24,9 @@ export class SongsController {
   }
 
   init() {
+    if (this.songWindow.currentNoteDiv.classList.contains('wrong-note')) {
+      this.songWindow.currentNoteDiv.classList.remove('wrong-note');
+    }
     this.progress = 0;
     this.prevNote = " ";
     this.currentNote = this.song.notes[this.progress];
@@ -39,7 +42,11 @@ export class SongsController {
     if (note !== this.currentNote) {
       Logger.log("Wrong note!:", {"Played note": note, "Actual note": this.currentNote}, 
       "SongsController (checkPlayerNote)");
+      this.songWindow.currentNoteDiv.classList.add('wrong-note');
       return;
+    }
+    if (this.songWindow.currentNoteDiv.classList.contains('wrong-note')) {
+      this.songWindow.currentNoteDiv.classList.remove('wrong-note');
     }
     this.update();
   }
@@ -48,8 +55,6 @@ export class SongsController {
     this.progress += 1;
 
     this.prevNote = this.currentNote;
-
-
 
     if (this.progress < this.song.notes.length) {
       this.currentNote = this.song.notes[this.progress];
