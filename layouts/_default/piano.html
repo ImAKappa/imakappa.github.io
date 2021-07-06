@@ -9,8 +9,7 @@
 <body class="piano-body">
 
   <div class="songs-window">
-    <h2 class="song-title">Song Name</h2>
-    <div class="progress">Progress: </div>
+    <h1 class="song-title">Song Name</h1>
     <div class="notes">
       <div class="prev-note">Previous Note:</div>
       <div class="current-note">Current Note: </div>
@@ -20,20 +19,25 @@
 
   <div class="piano">
     {{ range $sequence :=  (seq 3 5) }}
-      <div data-note="C{{ $sequence }}" class="key white"></div>
-      <div data-note="C#{{ $sequence }}" class="key black"></div>
-      <div data-note="D{{ $sequence }}" class="key white"></div>
-      <div data-note="D#{{ $sequence }}" class="key black"></div>
-      <div data-note="E{{ $sequence }}" class="key white"></div>
-      <div data-note="F{{ $sequence }}" class="key white"></div>
-      <div data-note="F#{{ $sequence }}" class="key black"></div>
-      <div data-note="G{{ $sequence }}" class="key white"></div>
-      <div data-note="G#{{ $sequence }}" class="key black"></div>
-      <div data-note="A{{ $sequence }}" class="key white"></div>
-      <div data-note="A#{{ $sequence }}" class="key black"></div>
-      <div data-note="B{{ $sequence }}" class="key white"></div>
+      <div data-note="C{{ $sequence }}" class="key white">C{{ $sequence }}</div>
+      <div data-note="C#{{ $sequence }}" class="key black">C#{{ $sequence }}</div>
+      <div data-note="D{{ $sequence }}" class="key white">D{{ $sequence }}</div>
+      <div data-note="D#{{ $sequence }}" class="key black">D#{{ $sequence }}</div>
+      <div data-note="E{{ $sequence }}" class="key white">E{{ $sequence }}</div>
+      <div data-note="F{{ $sequence }}" class="key white">F{{ $sequence }}</div>
+      <div data-note="F#{{ $sequence }}" class="key black">F#{{ $sequence }}</div>
+      <div data-note="G{{ $sequence }}" class="key white">G{{ $sequence }}</div>
+      <div data-note="G#{{ $sequence }}" class="key black">G#{{ $sequence }}</div>
+      <div data-note="A{{ $sequence }}" class="key white">A{{ $sequence }}</div>
+      <div data-note="A#{{ $sequence }}" class="key black">A#{{ $sequence }}</div>
+      <div data-note="B{{ $sequence }}" class="key white">B{{ $sequence }}</div>
     {{ end }}
-    <div data-note="C6" class="key white"></div>
+    <div data-note="C6" class="key white">C6</div>
+  </div>
+
+  <div class="song-controls">
+    <div class="progress">Progress: </div>
+    <button class="btn restart">Restart</button>
   </div>
 </body>
 </html>

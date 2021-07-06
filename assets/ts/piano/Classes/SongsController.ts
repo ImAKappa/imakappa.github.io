@@ -21,7 +21,6 @@ export class SongsController {
     this.songWindow.songTitleDiv.textContent = this.song.title;
     Logger.log("Song loaded:", {"song": this.song.title}, "SongsController (loadSong)");
     this.init();
-    this.draw();
   }
 
   init() {
@@ -32,6 +31,7 @@ export class SongsController {
       this.nextNote = this.song.notes[this.progress + 1];
     }
     Logger.log("Current Progress", {"progress": this.progress}, "SongsController (init)");
+    this.draw();
   }
 
   checkPlayerNote(note: string) {
@@ -66,7 +66,7 @@ export class SongsController {
   }
 
   draw() {
-    this.songWindow.prevNoteDiv.textContent = `Previous Note ${this.prevNote}`;
+    this.songWindow.prevNoteDiv.textContent = `Previous Note: ${this.prevNote}`;
 
     this.songWindow.currentNoteDiv.textContent = `Current Note: ${this.currentNote ?? "||"}`;
 

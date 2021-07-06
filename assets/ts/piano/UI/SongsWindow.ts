@@ -3,14 +3,14 @@ interface HTMLSongElementClasses {
   currentNoteClass: string,
   nextNoteClass: string,
   songTitleClass: string,
-  progressClass: string
+  progressClass: string,
 }
 
 export class SongsWindow {
 
-  prevNoteDiv: HTMLElement
-  currentNoteDiv: HTMLElement
-  nextNoteDiv: HTMLElement
+  prevNoteDiv: HTMLElement;
+  currentNoteDiv: HTMLElement;
+  nextNoteDiv: HTMLElement;
   songTitleDiv: HTMLElement;
   progressDiv: HTMLElement;
 

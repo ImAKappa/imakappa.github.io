@@ -3,12 +3,14 @@ import { SongsController } from "./SongsController";
 
 export class PianoInputHandler {
 
-  piano: Piano
-  pianoKeys: NodeList
+  piano: Piano;
+  pianoKeys: NodeList;
+  restartBtn: HTMLButtonElement;
 
-  constructor(piano: Piano, keys: NodeList) {
+  constructor(piano: Piano, keys: NodeList, restartBtn: HTMLButtonElement) {
     this.piano = piano;
     this.pianoKeys = keys;
+    this.restartBtn = restartBtn;
   }
 
   init(songsController: SongsController) {
@@ -22,6 +24,9 @@ export class PianoInputHandler {
       // Figure out how to play note on mouseover if mouse is down
     });
     // console.log("Piano initialization complete");
+    this.restartBtn.addEventListener('click', () => {
+      songsController.init();
+    });
   }
 
 }

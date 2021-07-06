@@ -32,11 +32,12 @@ const pianoSampler = new Tone.Sampler({
 //SETUP: Get keys from DOM
 // console.log("Grabbing keys from DOM");
 const keys = document.querySelectorAll('.key');
+const restartBtn = document.querySelector('.restart');
 
 //SETUP: Initialize piano
 // console.log('Setting up Piano');
 let piano = new Piano(pianoSampler);
-let pianoInputHandler = new PianoInputHandler(piano, keys);
+let pianoInputHandler = new PianoInputHandler(piano, keys, restartBtn as HTMLButtonElement);
 
 //SETUP: Initialize Songs Window & Controller
 let songWindowElements = {
