@@ -7,7 +7,16 @@
   <script src="{{ $js.Permalink }}" defer></script>
 </head>
 <body class="piano-body">
-  <button class="audio-setup">Click to Start</button>
+
+  <div class="songs-window">
+    <h2 class="song-title">Song Name</h2>
+    <div class="progress">Progress: </div>
+    <div class="notes">
+      <div class="prev-note">Previous Note:</div>
+      <div class="current-note">Current Note: </div>
+      <div class="next-note">Next Note: </div>
+    </div>
+  </div>
 
   <div class="piano">
     {{ range $sequence :=  (seq 3 5) }}

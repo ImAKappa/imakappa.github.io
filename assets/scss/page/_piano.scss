@@ -24,7 +24,7 @@ $--black-key-active: #333;
 }
 
 .white {
-  --width: 100px;
+  --width: 45px;
   background-color: theme-var($--white);
   border: 1px solid $--white-key-outline;
 }
@@ -34,7 +34,7 @@ $--black-key-active: #333;
 }
 
 .black {
-  --width: 60px;
+  --width: 27px;
   background-color: theme-var($--black);
   margin-left: calc(var(--width) / -2);
   margin-right: calc(var(--width) / -2);

@@ -1,13 +1,16 @@
 // Based on tutorial from Web Dev Simplified:  https://www.youtube.com/watch?v=vjco5yKZpU8
 
 import * as Tone from 'tone';
-import { Piano } from "./Piano";
-import { PianoInputHandler } from './PianoInputHandler';
+import { Piano } from "./Classes/Piano";
+import { PianoInputHandler } from './Classes/PianoInputHandler';
+import {SongsWindow } from './UI/SongsWindow';
+import { SongsController } from './Classes/SongsController';
+import { HALLELUJAH } from './Songs/Hallelujah';
 
-//SETUP: attach a click listener to a play button
-document.querySelector('.audio-setup')?.addEventListener('click', async () => {
-	await Tone.start();
-	console.log('audio is ready');
+//SETUP: Start Tone
+window.addEventListener('load', () => {
+	Tone.start();
+	console.log('Audio is ready');
 });
 
 const pianoSampler = new Tone.Sampler({
@@ -27,15 +30,28 @@ const pianoSampler = new Tone.Sampler({
 }).toDestination();
 
 //SETUP: Get keys from DOM
-console.log("Grabbing keys from DOM");
+// console.log("Grabbing keys from DOM");
 const keys = document.querySelectorAll('.key');
 
 //SETUP: Initialize piano
-console.log('Setting up Piano');
+// console.log('Setting up Piano');
 let piano = new Piano(pianoSampler);
 let pianoInputHandler = new PianoInputHandler(piano, keys);
 
-pianoInputHandler.init();
+//SETUP: Initialize Songs Window & Controller
+let songWindowElements = {
+  prevNoteClass: '.prev-note',
+  currentNoteClass: '.current-note',
+  nextNoteClass: '.next-note',
+  songTitleClass: '.song-title',
+  progressClass: '.progress'
+};
+let songWindow = new SongsWindow(songWindowElements);
+let songsController = new SongsController(songWindow);
+
+//SETUP: Link songController and piano through pianoInputHandler
+songsController.loadSong(HALLELUJAH);
+pianoInputHandler.init(songsController);
 
 
 // Piano App

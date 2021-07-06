@@ -8,18 +8,20 @@ export class Piano {
     this.sampler = sampler;
   }
 
-  playNote(key) {
+  playNote(key: HTMLElement): string {
     let note = key.dataset.note
-    console.log(`Pressed ${note} key`);
+    // console.log(`Pressed ${note} key`);
     let noteAudioOn = this.sampler.triggerAttack(note);
     key.classList.add('active');
+    return note;
   }
 
-  releaseNote(key) {
+  releaseNote(key: HTMLElement): string {
     let note = key.dataset.note;
-    console.log(`Released ${note} key`);
+    // console.log(`Released ${note} key`);
     let noteAudioOff = this.sampler.triggerRelease(note);
     key.classList.remove('active');
+    return note;
   }
 
 }
