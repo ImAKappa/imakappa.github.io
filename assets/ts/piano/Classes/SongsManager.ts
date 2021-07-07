@@ -1,10 +1,8 @@
 import { Logger } from "../Log/Logger";
 import { Song } from "../Songs/Song";
-import { SongsWindow } from "../UI/SongsWindow";
 
-export class SongsController {
+export class SongsManager {
 
-  songWindow: SongsWindow;
   song: Song;
   prevNote: string;
   currentNote: string;
@@ -12,21 +10,17 @@ export class SongsController {
   progress: number;
   score: number;
 
-  constructor(songWindow: SongsWindow) {
-    this.songWindow = songWindow;
+  constructor() {
+
   }
 
   loadSong(song: Song) {
     this.song = song;
-    this.songWindow.songTitleDiv.textContent = this.song.title;
     Logger.log("Song loaded:", {"song": this.song.title}, "SongsController (loadSong)");
     this.init();
   }
 
   init() {
-    if (this.songWindow.currentNoteDiv.classList.contains('wrong-note')) {
-      this.songWindow.currentNoteDiv.classList.remove('wrong-note');
-    }
     this.progress = 0;
     this.prevNote = " ";
     this.currentNote = this.song.notes[this.progress];
@@ -34,21 +28,16 @@ export class SongsController {
       this.nextNote = this.song.notes[this.progress + 1];
     }
     Logger.log("Current Progress", {"progress": this.progress}, "SongsController (init)");
-    this.draw();
   }
 
-  checkPlayerNote(note: string) {
+  checkPlayerNote(note: string): boolean {
     Logger.log("Recieved note:", {"note": note}, "SongsController (checkPlayerNote)");
     if (note !== this.currentNote) {
       Logger.log("Wrong note!:", {"Played note": note, "Actual note": this.currentNote}, 
       "SongsController (checkPlayerNote)");
-      this.songWindow.currentNoteDiv.classList.add('wrong-note');
-      return;
+      return false;
     }
-    if (this.songWindow.currentNoteDiv.classList.contains('wrong-note')) {
-      this.songWindow.currentNoteDiv.classList.remove('wrong-note');
-    }
-    this.update();
+    return true;
   }
 
   update() {
@@ -66,17 +55,5 @@ export class SongsController {
 
     Logger.log("Updated vars:", {"Progress": this.progress, 
       "Current Note": this.currentNote}, "SongsController (checkPlayerNote)");
-
-    this.draw();
-  }
-
-  draw() {
-    this.songWindow.prevNoteDiv.textContent = `Previous Note: ${this.prevNote}`;
-
-    this.songWindow.currentNoteDiv.textContent = `Current Note: ${this.currentNote ?? "||"}`;
-
-    this.songWindow.nextNoteDiv.textContent = `Next Note: ${this.nextNote ?? ""}`;
-
-    this.songWindow.progressDiv.textContent = `Progress: ${this.progress} out of ${this.song.notes.length} notes`;
   }
 }
