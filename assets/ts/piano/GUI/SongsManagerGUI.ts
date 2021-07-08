@@ -1,5 +1,6 @@
 import { SongsManager } from "../Classes/SongsManager";
 import { Song } from "../Songs/Song";
+import { Logger } from "../Log/Logger";
 
 export interface SongGUI {
   prevNoteClass: string,
@@ -21,6 +22,8 @@ export class SongsManagerGUI {
 
   songsManager: SongsManager;
 
+  currentKey: HTMLElement;
+
   constructor(songGUI: SongGUI, songsManager: SongsManager) {
     this.prevNoteDiv = document.querySelector(songGUI.prevNoteClass);
     this.currentNoteDiv = document.querySelector(songGUI.currentNoteClass);
@@ -40,10 +43,12 @@ export class SongsManagerGUI {
   }
 
   init() {
-    if (this.currentNoteDiv.classList.contains('wrong-note')) {
-      this.currentNoteDiv.classList.remove('wrong-note');
-    }
     this.songsManager.init();
+
+    this.currentKey = document.querySelector(`[data-note="${this.songsManager.currentNote}"]`);
+    Logger.log(`[data-note="${this.songsManager.currentNote}"]`);
+    this.currentKey?.classList.toggle('current-note');
+
     this.draw();
   }
 
@@ -62,7 +67,16 @@ export class SongsManagerGUI {
   }
 
   update() {
+    if (this.currentNoteDiv.classList.contains('wrong-note')) {
+      this.currentNoteDiv.classList.remove('wrong-note');
+    }
+    this.currentKey?.classList.toggle('current-note');
+
     this.songsManager.update();
+
+    this.currentKey = document.querySelector(`[data-note="${this.songsManager.currentNote}"]`);
+    Logger.log(`[data-note="${this.songsManager.currentNote}"]`);
+    this.currentKey?.classList.toggle('current-note');
   }
 
   draw() {

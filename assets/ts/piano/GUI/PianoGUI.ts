@@ -11,10 +11,12 @@ export class PianoGUI {
   }
 
   playNote(key: HTMLElement) {
+    key.classList.add('active');
     return this.piano.playNote(key);
   }
 
   releaseNote(key: HTMLElement) {
+    key.classList.remove('active');
     return this.piano.releaseNote(key);
   }
 

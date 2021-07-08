@@ -26,7 +26,6 @@ export class Piano {
     let note = key.dataset.note
     // console.log(`Pressed ${note} key`);
     let noteAudioOn = this.pianoSampler.triggerAttack(note);
-    key.classList.add('active');
     return note;
   }
 
@@ -34,7 +33,6 @@ export class Piano {
     let note = key.dataset.note;
     // console.log(`Released ${note} key`);
     let noteAudioOff = this.pianoSampler.triggerRelease(note);
-    key.classList.remove('active');
     return note;
   }
 
