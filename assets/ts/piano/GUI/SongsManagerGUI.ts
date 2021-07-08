@@ -45,6 +45,12 @@ export class SongsManagerGUI {
   init() {
     this.songsManager.init();
 
+    document.querySelectorAll('[data-note]').forEach((key: HTMLElement) => {
+      if (key.classList.contains('current-note')) {
+        key.classList.remove('current-note');
+      }
+    });
+
     this.currentKey = document.querySelector(`[data-note="${this.songsManager.currentNote}"]`);
     Logger.log(`[data-note="${this.songsManager.currentNote}"]`);
     this.currentKey?.classList.toggle('current-note');
