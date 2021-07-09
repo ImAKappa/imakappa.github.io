@@ -27,12 +27,13 @@ export class PianoSongManagerAdapter {
     // Logger.log("Length check: ", { "Keys": this.pianoGUI.pianoKeys.length, "KeyMap": this.pianoGUI.keyBoardMap.length });
     // Keyboard interactions
     document.addEventListener('keydown', (e: KeyboardEvent) => {
-      if (e.repeat) return;
-      Logger.log("KeyDown", {"Computer Key" : e.code });
-      const keyIdx = this.pianoGUI.keyBoardMap.indexOf(e.code);
-      if (keyIdx >= 0) {
-        const key = this.pianoGUI.pianoKeys[keyIdx] as HTMLElement;
-        this.pianoGUI.playNote(key);
+      if (!e.repeat) {
+        Logger.log("KeyDown", {"Computer Key" : e.code });
+        const keyIdx = this.pianoGUI.keyBoardMap.indexOf(e.code);
+        if (keyIdx >= 0) {
+          const key = this.pianoGUI.pianoKeys[keyIdx] as HTMLElement;
+          this.pianoGUI.playNote(key);
+        }
       }
     });
 

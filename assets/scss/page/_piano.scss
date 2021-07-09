@@ -3,10 +3,11 @@
 $--white-key-outline: #333;
 $--white-key-active: #CCC;
 $--black-key-active: #333;
-$--background-colour: #143F6B;
+$--bg-main: #1158a0;
+$--highlight: #16d2d8;
 
 .piano-body {
-  background-color: $--background-colour;
+  background-color: $--bg-main;
   margin: 0;
   min-height: 100vh;
   display: flex;
@@ -16,13 +17,17 @@ $--background-colour: #143F6B;
 
 .piano {
   display: flex;
-
+  border-top: 3rem solid theme-var($--black);
+  border-left: 1rem solid theme-var($--black);
+  border-right: 1rem solid theme-var($--black);
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .key {
   height: calc(var(--width) * 4);
   width: var(--width);
-  color: $--background-colour;
+  color: $--bg-main;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +92,8 @@ $--background-colour: #143F6B;
 }
 
 .current-note {
-  border: 2px solid #0000ff;
+  box-shadow: inset 0 0 5px 3px $--highlight;
+  border: 1px solid $--highlight;
 }
 
 .wrong-note {
@@ -99,10 +105,10 @@ $--background-colour: #143F6B;
   margin: 0.5rem;
   transition: all 0.3s ease;
   background-color: theme-var($--white);
-  color: $--background-colour;
-  border: 2px solid $--background-colour;
+  color: $--bg-main;
+  border: 2px solid $--bg-main;
   &:hover {
-    background-color: $--background-colour;
+    background-color: $--bg-main;
     color: theme-var($--white);
     border: 2px solid theme-var($--white);
   }
