@@ -21,6 +21,7 @@ const pianoGUI = new PianoGUI(piano, keys);
 
 //SETUP: Initialize Songs GUI & Manager
 const songGUI: SongGUI = {
+  songsGUIParentClass: '.songs-window',
   prevNoteClass: '.prev-note',
   currentNoteClass: '.current-note',
   nextNoteClass: '.next-note',

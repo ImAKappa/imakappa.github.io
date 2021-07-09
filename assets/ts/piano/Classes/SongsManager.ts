@@ -23,9 +23,9 @@ export class SongsManager {
   init() {
     this.progress = 0;
     this.prevNote = " ";
-    this.currentNote = this.song.notes[this.progress];
+    this.currentNote = this.song.notes[this.progress].freq;
     if (this.progress + 1 < this.song.notes.length) {
-      this.nextNote = this.song.notes[this.progress + 1];
+      this.nextNote = this.song.notes[this.progress + 1].freq;
     }
     Logger.log("Current Progress", {"progress": this.progress}, "SongsController (init)");
   }
@@ -46,8 +46,8 @@ export class SongsManager {
     this.prevNote = this.currentNote;
 
     if (this.progress < this.song.notes.length) {
-      this.currentNote = this.song.notes[this.progress];
-      this.nextNote = this.song.notes[this.progress + 1];
+      this.currentNote = this.song.notes[this.progress].freq;
+      this.nextNote = this.song.notes[this.progress + 1].freq;
     } else {
       this.currentNote = null;
       this.nextNote = null;
@@ -55,5 +55,13 @@ export class SongsManager {
 
     Logger.log("Updated vars:", {"Progress": this.progress, 
       "Current Note": this.currentNote}, "SongsController (checkPlayerNote)");
+  }
+
+  getLine(idx: number) {
+    return this.song.lines[idx];
+  }
+
+  highlight(note: string) {
+    this.currentNote = note;
   }
 }

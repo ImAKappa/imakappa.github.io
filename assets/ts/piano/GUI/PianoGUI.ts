@@ -4,24 +4,26 @@ export class PianoGUI {
 
   piano: Piano;
   pianoKeys: NodeList;
-  keyBoardMap: string[];
-  firstOctave: string[];
-  secondOctave: string[];
-  thirdOctave: string[];
 
   constructor(piano: Piano, pianoKeys: NodeList) {
     this.piano = piano;
     this.pianoKeys = pianoKeys;
   }
 
-  playNote(key: HTMLElement) {
+  playNote(key: HTMLElement | string, duration?: string) {
+    if (typeof key === 'string') return this.piano.playNote(key, duration);
     key.classList.add('active');
-    return this.piano.playNote(key);
+    return this.piano.playNote(key.dataset.note, duration);
   }
 
-  releaseNote(key: HTMLElement) {
+  releaseNote(key: HTMLElement | string, duration?: string) {
+    if (typeof key === 'string') return this.piano.playNote(key, duration);
     key.classList.remove('active');
-    return this.piano.releaseNote(key);
+    return this.piano.releaseNote(key.dataset.note, duration);
+  }
+
+  playSequence() {
+    this.piano.playSequence();
   }
 
 }

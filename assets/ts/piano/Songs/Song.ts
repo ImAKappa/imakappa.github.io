@@ -1,4 +1,5 @@
 export interface Song {
   title: string,
-  notes: string[]
+  notes: {freq: string, dur: string}[],
+  lines: {freq: string, dur: string}[][]
 }

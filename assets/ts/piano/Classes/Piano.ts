@@ -1,4 +1,5 @@
 import * as Tone from 'tone';
+import { Logger } from '../Log/Logger';
 
 export class Piano {
   // Responsible for playing sounds
@@ -22,18 +23,28 @@ export class Piano {
     }).toDestination();
   }
 
-  playNote(key: HTMLElement): string {
-    let note = key.dataset.note
-    // console.log(`Pressed ${note} key`);
-    let noteAudioOn = this.pianoSampler.triggerAttack(note);
-    return note;
+  playNote(frequency: string, duration?: string): string {
+    let noteAudioOn = this.pianoSampler.triggerAttack(frequency, duration);
+    return frequency;
   }
 
-  releaseNote(key: HTMLElement): string {
-    let note = key.dataset.note;
-    // console.log(`Released ${note} key`);
-    let noteAudioOff = this.pianoSampler.triggerRelease(note);
-    return note;
+  releaseNote(frequency: string, duration?: string): string {
+    let noteAudioOff = this.pianoSampler.triggerRelease(frequency, duration);
+    return frequency;
+  }
+
+  playSequence() {
+    // Stop, rewind and clear all events from the transport (from previous plays)
+    Tone.Transport.stop();
+    Tone.Transport.position = 0;
+    Tone.Transport.cancel();
+    const seq = new Tone.Sequence((time, note) => {
+      this.pianoSampler.triggerAttackRelease(note, 0.1, time);
+      // subdivisions are given as subarrays
+    }, ["C4", ["E4", "D4", "E4"], "G4", ["A4", "G4"]]).start(0);
+    seq.loop = false;
+    Logger.log("ToneJS Sequence", {"sequence": seq});
+    Tone.Transport.start('+0.1'); // '+0.1' helps avoid pops
   }
 
 }
