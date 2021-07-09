@@ -3,11 +3,15 @@
 $--white-key-outline: #333;
 $--white-key-active: #CCC;
 $--black-key-active: #333;
-$--bg-main: #1158a0;
-$--highlight: #16d2d8;
+$--bg-main: #1488CC;
+$--highlight: #2bb1ff;
 
 .piano-body {
   background-color: $--bg-main;
+  // https://uigradients.com/#Skyline
+  background: #1488CC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #2B32B2, #1488CC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0;
   min-height: 100vh;
   display: flex;
@@ -21,7 +25,7 @@ $--highlight: #16d2d8;
   border-left: 1rem solid theme-var($--black);
   border-right: 1rem solid theme-var($--black);
   border-radius: 10px 10px 0 0;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .key {
@@ -68,6 +72,10 @@ $--highlight: #16d2d8;
   justify-content: center;
   text-align: center;
   margin: 2rem;
+}
+
+.song-title {
+  font-size: 2.8rem;
 }
 
 .notes {
