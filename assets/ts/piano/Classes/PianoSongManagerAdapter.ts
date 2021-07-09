@@ -24,28 +24,6 @@ export class PianoSongManagerAdapter {
       // Figure out how to play note on mouseover if mouse is down
     });
 
-    // Logger.log("Length check: ", { "Keys": this.pianoGUI.pianoKeys.length, "KeyMap": this.pianoGUI.keyBoardMap.length });
-    // Keyboard interactions
-    document.addEventListener('keydown', (e: KeyboardEvent) => {
-      if (!e.repeat) {
-        Logger.log("KeyDown", {"Computer Key" : e.code });
-        const keyIdx = this.pianoGUI.keyBoardMap.indexOf(e.code);
-        if (keyIdx >= 0) {
-          const key = this.pianoGUI.pianoKeys[keyIdx] as HTMLElement;
-          this.pianoGUI.playNote(key);
-        }
-      }
-    });
-
-    document.addEventListener('keyup', (e: KeyboardEvent) => {
-      Logger.log("KeyUp", {"Computer Key" : e.code });
-      const keyIdx = this.pianoGUI.keyBoardMap.indexOf(e.code);
-      if (keyIdx >= 0) {
-        const key = this.pianoGUI.pianoKeys[keyIdx] as HTMLElement;
-        this.pianoGUI.releaseNote(key);
-      }
-    });
-
     // SongManager initialization
     this.songManagerGUI.restartBtn.addEventListener('click', () => {
       this.songManagerGUI.init();
