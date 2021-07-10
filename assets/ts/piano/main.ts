@@ -17,8 +17,8 @@ window.addEventListener('load', () => {
 //SETUP: Initialize piano GUI & Instrument
 const piano = new Piano();
 const keys = document.querySelectorAll('.key');
-const pianoGUI = new PianoGUI(piano, keys);
-pianoGUI.setBPM(80);
+const bpmInput = document.querySelector('input.bpm') as HTMLInputElement;
+const pianoGUI = new PianoGUI(piano, keys, bpmInput);
 
 //SETUP: Initialize Songs GUI & Manager
 const songGUI: SongGUI = {

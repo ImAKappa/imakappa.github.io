@@ -4,6 +4,7 @@ import { Logger } from '../Log/Logger';
 export class Piano {
   // Responsible for playing sounds
   pianoSampler: Tone.Sampler;
+  bpm: number;
 
   constructor() {
     this.pianoSampler = new Tone.Sampler({
@@ -21,10 +22,13 @@ export class Piano {
       release: 1,
       baseUrl: "salamander/",
     }).toDestination();
+    this.bpm = 80;
   }
 
   setBPM(bpm: number) {
     Tone.Transport.bpm.value = bpm;
+    this.bpm = bpm;
+    console.log(`BPM: ${Tone.Transport.bpm.value}`);
   }
 
   playNote(frequency: string, duration?: string): string {
