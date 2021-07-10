@@ -109,7 +109,7 @@ $--highlight: #2bb1ff;
 }
 
 /* Songs Controls */
-.restart {
+.btn-piano {
   margin: 0.5rem;
   transition: all 0.3s ease;
   background-color: theme-var($--white);
@@ -120,4 +120,12 @@ $--highlight: #2bb1ff;
     color: theme-var($--white);
     border: 2px solid theme-var($--white);
   }
+}
+
+/* Lines Window */
+.lines-window {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

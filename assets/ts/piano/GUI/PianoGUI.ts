@@ -22,8 +22,12 @@ export class PianoGUI {
     return this.piano.releaseNote(key.dataset.note, duration);
   }
 
-  playSequence() {
-    this.piano.playSequence();
+  playSequence(line: {}[], drawFunc: (value: {time: number, note: string, duration: string}) => void) {
+    this.piano.playSequence(line, drawFunc);
+  }
+
+  setBPM(bpm: number) {
+    this.piano.setBPM(bpm);
   }
 
 }

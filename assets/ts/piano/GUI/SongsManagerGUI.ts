@@ -59,7 +59,7 @@ export class SongsManagerGUI {
       // Add data to div (line order)
       playBtn.dataset.line = `${i+1}`;
       // Add classes
-      playBtn.classList.add('play', 'btn');
+      playBtn.classList.add('play', 'btn', 'btn-piano');
       // Add text content
       playBtn.textContent = `Line ${i+1}`;
       // Add div to songGUIParentDiv
@@ -67,8 +67,6 @@ export class SongsManagerGUI {
     });
 
     this.playBtns = document.querySelectorAll('.play');
-
-
   }
 
   reset() {
@@ -79,8 +77,8 @@ export class SongsManagerGUI {
         key.classList.remove('current-note');
       }
     });
-    this.currentKey = document.querySelector(`[data-note="${this.songsManager.currentNote}"]`);
-    Logger.log(`[data-note="${this.songsManager.currentNote}"]`);
+    this.currentKey = document.querySelector(`[data-note="${this.songsManager.getCurrentNote()}"]`);
+    Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
     this.currentKey?.classList.toggle('current-note');
 
     this.draw();
@@ -108,19 +106,19 @@ export class SongsManagerGUI {
 
     this.songsManager.update();
 
-    this.currentKey = document.querySelector(`[data-note="${this.songsManager.currentNote}"]`);
-    Logger.log(`[data-note="${this.songsManager.currentNote}"]`);
+    this.currentKey = document.querySelector(`[data-note="${this.songsManager.getCurrentNote()}"]`);
+    Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
     this.currentKey?.classList.toggle('current-note');
   }
 
   draw() {
-    this.prevNoteDiv.textContent = `Previous Note: ${this.songsManager.prevNote}`;
+    this.prevNoteDiv.textContent = `Previous Note: ${this.songsManager.getPrevNote()}`;
 
-    this.currentNoteDiv.textContent = `Current Note: ${this.songsManager.currentNote ?? "||"}`;
+    this.currentNoteDiv.textContent = `Current Note: ${this.songsManager.getCurrentNote() ?? "||"}`;
 
-    this.nextNoteDiv.textContent = `Next Note: ${this.songsManager.nextNote ?? ""}`;
+    this.nextNoteDiv.textContent = `Next Note: ${this.songsManager.getNextNote() ?? ""}`;
 
-    this.progressDiv.textContent = `Progress: ${this.songsManager.progress} out of ${this.songsManager.song.notes.length} notes`;
+    this.progressDiv.textContent = `Progress: ${this.songsManager.getProgress()[0]} out of ${this.songsManager.getProgress()[1]} notes`;
   }
 
   getLine(line: number) {
@@ -137,8 +135,8 @@ export class SongsManagerGUI {
 
     // this.songsManager.update();
 
-    this.currentKey = document.querySelector(`[data-note="${this.songsManager.currentNote}"]`);
-    Logger.log(`[data-note="${this.songsManager.currentNote}"]`);
+    this.currentKey = document.querySelector(`[data-note="${this.songsManager.getCurrentNote()}"]`);
+    Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
     this.currentKey?.classList.toggle('current-note');
     // this.draw();
   }

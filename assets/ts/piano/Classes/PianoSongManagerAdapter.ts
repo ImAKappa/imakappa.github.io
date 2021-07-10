@@ -40,7 +40,9 @@ export class PianoSongManagerAdapter {
   playLine(line: number) {
     Logger.log("Check Line", { line });
     Logger.log("Check SongManagerGUI Line", {"Line": this.songManagerGUI.getLine(line) });
-    this.pianoGUI.playSequence();
+    this.pianoGUI.playSequence(this.songManagerGUI.getLine(line), (value) => {
+      this.songManagerGUI.highlight(value.note);
+    });
     // for (let note of this.songManagerGUI.getLine(line)) {
     //   this.songManagerGUI.highlight(this.pianoGUI.playNote(note.freq, note.dur));
     // }

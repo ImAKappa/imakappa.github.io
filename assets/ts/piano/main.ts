@@ -18,10 +18,11 @@ window.addEventListener('load', () => {
 const piano = new Piano();
 const keys = document.querySelectorAll('.key');
 const pianoGUI = new PianoGUI(piano, keys);
+pianoGUI.setBPM(80);
 
 //SETUP: Initialize Songs GUI & Manager
 const songGUI: SongGUI = {
-  songsGUIParentClass: '.songs-window',
+  songsGUIParentClass: '.lines-window',
   prevNoteClass: '.prev-note',
   currentNoteClass: '.current-note',
   nextNoteClass: '.next-note',
