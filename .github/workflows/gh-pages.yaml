@@ -20,10 +20,22 @@ jobs:
         with:
           hugo-version: 'latest'
           extended: true
-      # (Optional) Step 3 - Clean public directory
-        # - name: Clean public directory
-        #   run: rm -rf public
-      # Step 4 - Build Hugo site
+      # Step 3 - Setup Node and Tone.js
+      - name: Setup Node and ToneJS
+        uses: actions/checkout@v2
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+        run: npm install
+        run: npm test
+      # Step 4a - Cache Hugo modules
+      - uses: actions/cache@v2
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
+      # Step 4b - Build Hugo site
       - name: Build
         run: hugo --minify
       # Step 5 - Deploy to external repo
