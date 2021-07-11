@@ -103,59 +103,62 @@ export class SongsManager {
       "Current Note": this.currentNote, "Next Note": this.nextNote}, "SongsController (checkPlayerNote)");
   }
 
-  // Everything below this comment comes from: https://www.guitarland.com/MusicTheoryWithToneJS/PlayRhythms.html
-  // I'm working on refactoring it
-
-  /** Removes the 'r' from rest notation */
-	removeRestNotation(restNotationString: string) {
-    return restNotationString.replace(/r/g, '');
+  // this function removes the 'r' from rest notation
+	processRestNotation(restNotationValue) {
+		let restValue = "";
+		for(let i = 0; i < restNotationValue.length; i++) {
+			if(restNotationValue.charAt(i)  !== "r")
+				restValue += restNotationValue.charAt(i);
+		}
+		return restValue;
 	}
 
-  removeRestsFromDurations(duration_array: string[]) {
+  removeRestsFromDurations(duration_array) {
 		let newDurations = [];
-    duration_array.forEach((duration) => {
-      if (!duration.includes('r')) newDurations.push(duration);
-    });
+		for(let i=0; i<duration_array.length; i++) {
+			if(duration_array[i].includes("r") === false) {
+				newDurations.push(duration_array[i]);
+			}
+		}
 		return newDurations;
 	}
 
-  /** Still note sure what this function does */
-  processDurationArrayIntoSingleDuration(duration_array: string[]) {
+  processDurationArrayIntoSingleDuration(duration_array) {
     let single_duration = 0;
     let duration;
     let is_rest = false;
-    duration_array.forEach((duration) => {
-      single_duration = Tone.Time(single_duration + Tone.Time(duration));
-      console.log("Single Duration (Song Manager)", single_duration);
-      is_rest = duration_array[i].includes("r");
-    });
+    for(let i=0; i < duration_array.length; i++) {
+      single_duration = Tone.Time(single_duration + Tone.Time(duration_array[i]));
+      is_rest = duration_array[i].includes("r")? true: false;
+    }
     duration = single_duration.toNotation();
     if(is_rest) {
       duration = duration + "r" 
     }
     return duration;
-  }
+}
 
-  /** Adds the durations of an array to create a single duration */
+  // this function adds the durations of an array to create a single duration
   processDurationArrays(durs) {
-    let durations = [];
-    durs.forEach((duration) => {
-      let current_dur_is_array = typeof(duration) === 'object';
+    let durations = []; 
+    for(let i = 0; i < durs.length; i++) {
+      let current_dur_is_array = typeof(durs[i]) === 'object'? true: false;
       if(current_dur_is_array) { 
-        durations.push(this.processDurationArrayIntoSingleDuration(duration));
+        durations.push(this.processDurationArrayIntoSingleDuration(durs[i]))            
       } else {
-        durations.push(duration);
+        durations.push(durs[i])
       }
-    });
+    }
     return durations;
   }
 
   processDurationNotation(duration_array, startTime) {
     let myStartTime = startTime ?? 0;
+		
 		let nextIsRest = false;
 		let restValue = '';
 		let t = Tone.Time(startTime);  // holds the current accumulated time
-    // let t = Tone.TransportTime(startTime);  // holds the current accumulated time
+    //		let t = Tone.TransportTime(startTime);  // holds the current accumulated time
 		let t_array = [];
 		t_array.push(t.toSeconds());
 		let accum;  // holds the accumulated time for associated note's start time (notes and durations are parallel array)  
@@ -166,30 +169,31 @@ export class SongsManager {
 		// is the start time of notes[1] (if there aren't any rest to consider).
 		// in other words duration_array[i] is setting the start time for NEXT note (i+1 of the parallel notes array)
 		// this is tricky.
-		for(let i = 0; i < duration_array.length; i++) {
-      // console.log('typeof(duration_array['+i+'])='+typeof(duration_array[i])+' duration_array['+i+']='+duration_array[i]);
-      let current_dur_is_array = typeof(duration_array[i]) === 'object';
-      if(current_dur_is_array) {                
-        // add the values together
-        for(let idx = 0; idx < duration_array[i].length; idx++) {
-          let array_value = duration_array[i][idx];
-          current_duration = current_duration + Tone.Time(array_value);
-          current_duration_is_rest = duration_array[i][idx].includes("r");
-        }
-      } else {
-        current_duration = duration_array[i];
-        current_duration_is_rest = duration_array[i].includes("r");
-      }
+		for(let i=0; i<duration_array.length; i++) {
+    //		    console.log('typeof(duration_array['+i+'])='+typeof(duration_array[i])+' duration_array['+i+']='+duration_array[i]);
+		    let current_dur_is_array = typeof(duration_array[i]) === 'object'? true: false;
+            if(current_dur_is_array) {                
+                // add the values together
+                for(let idx=0; idx < duration_array[i].length; idx++) {
+                    let array_value = duration_array[i][idx];
+                    current_duration = current_duration + Tone.Time(array_value);
+                    current_duration_is_rest = duration_array[i][idx].includes("r")
+                }
+            } else {
+                current_duration = duration_array[i];
+                current_duration_is_rest = duration_array[i].includes("r");
+            }
+
 			// check if the next element in the array is a rest
-			if(i < (duration_array.length-2) && typeof(duration_array[i+1] === 'string') && duration_array[i+1].includes("r") ) {
+			if(i<(duration_array.length-2) && typeof(duration_array[i+1] === 'string') && duration_array[i+1].includes("r") ) {
 				nextIsRest = true;
-			} else if(i < (duration_array.length-2) && typeof(duration_array[i+1] === 'object') && duration_array[i+1][0].includes("r") ) {
+			} else if(i<(duration_array.length-2) && typeof(duration_array[i+1] === 'object') && duration_array[i+1][0].includes("r") ) {
 				nextIsRest = true;
 			} else {
-				nextIsRest = false;
+				nextIsRest = false;  
 			}
 	
-			// if current loop isn't rest (i.e. it's a note)
+			// if current loop isn't rest (it's a note)
 			if(current_duration_is_rest === false) {
 				accum = Tone.Time( t + Tone.Time(current_duration) );
 				if( !nextIsRest ) {
@@ -199,7 +203,7 @@ export class SongsManager {
 				t = Tone.Time( accum.valueOf() );   
 			}
 			else { // current loop is a rest
-				restValue = this.removeRestNotation(current_duration);
+				restValue = this.processRestNotation(current_duration);
 				accum = Tone.Time( t + Tone.Time(restValue) );
 				if(i===0) { // if the first duration is a rest, clear t_array
 					t_array = [];				
@@ -251,11 +255,13 @@ export class SongsManager {
 		let all_durations = this.processDurationArrays(durations);
 		let myDurations = this.removeRestsFromDurations(all_durations);
 		let j = 0;
-		for(let i = 0; i < pitches.length; i++) {
+		for(let i=0; i<pitches.length; i++) {
 			// loop thru the rhythm array until the pitch array is completed.
 			j = j % time_array.length; 
 			rhythmValue = time_array[j]; // j incremented at end of loop
-      // console.log('rhythmValue='+rhythmValue+' time_array['+j+']='+time_array[j]);
+		
+//		    console.log('rhythmValue='+rhythmValue+' time_array['+j+']='+time_array[j]);
+	
 			// if pitches[i] is a single note just add the one note object
 			if(typeof(pitches[i]) == 'string') {
 				let oneNote = {};
@@ -290,16 +296,20 @@ export class SongsManager {
 					melody.push(oneNote);
 				}
 			}
+	
 			j++;
 			lastDuration = myDurations[i];
 		}
-    // totalTime = rhythmValue + " + " + lastDuration;
-    // totalTime = rhythmValue + Tone.Time(lastDuration).valueOf();
+//		totalTime = rhythmValue + " + " + lastDuration;
+//		totalTime = rhythmValue + Tone.Time(lastDuration).valueOf();
 		let totalTime = rhythmValue + Tone.TransportTime(lastDuration).toSeconds();
-    // totalTime = rhythmValue + Tone.TransportTime(lastDuration).valueOf();
-    // console.log('lastDuration='+lastDuration+' rhythmValue='+rhythmValue+' Tone.TransportTime(lastDuration)='+Tone.TransportTime(lastDuration) );
-    // let lastIndex = time_array.length-1;
-    // console.log('totalTime='+totalTime+' time_array['+lastIndex+']='+time_array[lastIndex] );
+
+//		totalTime = rhythmValue + Tone.TransportTime(lastDuration).valueOf();
+
+//		console.log('lastDuration='+lastDuration+' rhythmValue='+rhythmValue+' Tone.TransportTime(lastDuration)='+Tone.TransportTime(lastDuration) );
+//		let lastIndex = time_array.length-1;
+//		console.log('totalTime='+totalTime+' time_array['+lastIndex+']='+time_array[lastIndex] );
 		return melody;
 	}
+
 }

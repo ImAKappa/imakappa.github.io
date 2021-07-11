@@ -19,6 +19,10 @@ $--highlight: #2bb1ff;
   align-items: center;
 }
 
+.subheader {
+  margin: 0;
+}
+
 .piano {
   display: flex;
   border-top: 3rem solid theme-var($--black);
@@ -120,6 +124,12 @@ $--highlight: #2bb1ff;
     color: theme-var($--white);
     border: 2px solid theme-var($--white);
   }
+}
+
+.btn-active {
+  background-color: $--bg-main;
+  color: theme-var($--white);
+  border: 2px solid theme-var($--white);
 }
 
 /* Lines Window */

@@ -1,6 +1,5 @@
 import { SongsManager } from "../Classes/SongsManager";
 import { Song } from "../Songs/Song";
-import { Logger } from "../Log/Logger";
 
 export interface SongGUI {
   songsGUIParentClass: string,
@@ -41,12 +40,12 @@ export class SongsManagerGUI {
     this.songTitleDiv = document.querySelector(songGUI.songTitleClass);
     this.progressDiv = document.querySelector(songGUI.progressClass);
     this.restartBtn = document.querySelector(songGUI.restartClass);
-    this.bpmInput = document.querySelector(songGUI.bpmInputClass)
+    this.bpmInput = document.querySelector(songGUI.bpmInputClass);
     this.bpmInput.addEventListener('change', () => {
       this.setBPM(parseInt(this.bpmInput.value));
     });
-
     this.songsManager = songsManager;
+    this.bpmInput.value = this.songsManager.bpm.toString();
   }
 
   loadSong(song: Song) {
@@ -84,7 +83,6 @@ export class SongsManagerGUI {
       }
     });
     this.currentKey = document.querySelector(`[data-note="${this.songsManager.getCurrentNote()}"]`);
-    Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
     this.currentKey?.classList.toggle('current-note');
 
     this.draw();
@@ -113,7 +111,6 @@ export class SongsManagerGUI {
     this.songsManager.update();
 
     this.currentKey = document.querySelector(`[data-note="${this.songsManager.getCurrentNote()}"]`);
-    Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
     this.currentKey?.classList.toggle('current-note');
   }
 
@@ -142,7 +139,6 @@ export class SongsManagerGUI {
     // this.songsManager.update();
 
     this.currentKey = document.querySelector(`[data-note="${this.songsManager.getCurrentNote()}"]`);
-    Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
     this.currentKey?.classList.toggle('current-note');
     // this.draw();
   }

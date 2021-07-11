@@ -30,6 +30,11 @@ let line6 = {
   'durations': ['4n', '8n', '4n', '8n', '4n', '8n', '4n', '8n', '8n', '2n']
 }
 
+let chorus = {
+  'pitches': ['E4', 'G4', 'A4', 'A4', 'A4', 'G4', 'E4', 'E4', 'E4', 'G4', 'A4', 'A4', 'A4', 'G4', 'E4', 'F4', 'E4', 'D4', 'C4', 'C4'],
+  'durations': ['4n', '8n', '4n', '2n', '4n', '8n', '2n', '2n', '4n', '8n', '4n', '2n', '4n', '8n', '2n', '8n', '8n', '2n', '8n', '2n']
+}
+
 // let line1 = [
 //   {freq: 'E4', dur: '8n'}, // I
 //   {freq: 'G4', dur: '4n'}, // heard
@@ -50,5 +55,6 @@ export const HALLELUJAH: Song = {
     line4,
     line5,
     line6,
+    chorus,
   ]
 };

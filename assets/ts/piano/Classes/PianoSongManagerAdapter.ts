@@ -28,6 +28,14 @@ export class PianoSongManagerAdapter {
     this.songManagerGUI.playBtns.forEach((btn: HTMLButtonElement) => {
       btn.addEventListener('click', () => {
         this.playLine(parseInt(btn.dataset.line));
+        this.songManagerGUI.reset();
+        // Remove btn-active from all buttons
+        this.songManagerGUI.playBtns.forEach((btn: HTMLButtonElement) => {
+          // W3 says removing non-existent class does NOT throw error
+          btn.classList.remove('btn-active'); 
+        });
+        // Add to button that was clicked
+        btn.classList.add('btn-active');
       });
     });
 
