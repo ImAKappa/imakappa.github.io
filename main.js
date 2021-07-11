@@ -16221,6 +16221,7 @@
   };
 
   // <stdin>
+  console.log("Happy Birthday Dad :)");
   window.addEventListener("load", () => {
     start();
     console.log("Audio is ready");
