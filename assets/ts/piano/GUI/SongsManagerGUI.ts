@@ -10,6 +10,7 @@ export interface SongGUI {
   songTitleClass: string,
   progressClass: string,
   restartClass: string,
+  bpmInputClass: string,
 }
 
 export class SongsManagerGUI {
@@ -28,6 +29,7 @@ export class SongsManagerGUI {
   songsManager: SongsManager;
 
   currentKey: HTMLElement;
+  bpmInput: HTMLInputElement;
 
   constructor(songGUI: SongGUI, songsManager: SongsManager) {
     this.songsGUIParentDiv = document.querySelector(songGUI.songsGUIParentClass);
@@ -39,6 +41,10 @@ export class SongsManagerGUI {
     this.songTitleDiv = document.querySelector(songGUI.songTitleClass);
     this.progressDiv = document.querySelector(songGUI.progressClass);
     this.restartBtn = document.querySelector(songGUI.restartClass);
+    this.bpmInput = document.querySelector(songGUI.bpmInputClass)
+    this.bpmInput.addEventListener('change', () => {
+      this.setBPM(parseInt(this.bpmInput.value));
+    });
 
     this.songsManager = songsManager;
   }
@@ -139,6 +145,10 @@ export class SongsManagerGUI {
     Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
     this.currentKey?.classList.toggle('current-note');
     // this.draw();
+  }
+
+  setBPM(bpm: number) {
+    this.songsManager.setBPM(bpm);
   }
 
 }

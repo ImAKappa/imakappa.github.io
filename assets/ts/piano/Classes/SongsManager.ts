@@ -24,12 +24,17 @@ export class SongsManager {
     console.log(this.lines);
   }
 
+  setBPM(bpm: number) {
+    Tone.Transport.bpm.value = bpm;
+    this.lines = this.processSong(this.song);
+    Logger.log("Bpm changed:", {"BPM in Tone context": Tone.Transport.bpm.value }, "SongsManager (setBPM)");
+  }
+
   processSong(song) {
     let lines = [];
     song.lines.forEach((line) => {
       // Logger.log("Line properties", {"pitch": line.pitches, "duration": line.durations}, "SongsController (processSong)");
       let processedLine = this.mergeDurationsAndPitch(line.durations, line.pitches);
-      console.log(processedLine);
       // Logger.log("Line", {processedLine}, "SongsController (processSong)");
       lines.push(processedLine);
     });

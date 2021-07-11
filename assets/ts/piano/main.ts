@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
 const piano = new Piano();
 const keys = document.querySelectorAll('.key');
 const bpmInput = document.querySelector('input.bpm') as HTMLInputElement;
-const pianoGUI = new PianoGUI(piano, keys, bpmInput);
+const pianoGUI = new PianoGUI(piano, keys);
 
 //SETUP: Initialize Songs GUI & Manager
 const songGUI: SongGUI = {
@@ -28,7 +28,8 @@ const songGUI: SongGUI = {
   nextNoteClass: '.next-note',
   songTitleClass: '.song-title',
   progressClass: '.progress',
-  restartClass: '.restart'
+  restartClass: '.restart',
+  bpmInputClass: '.bpm',
 };
 
 const songsManager = new SongsManager();
