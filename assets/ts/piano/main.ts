@@ -8,6 +8,8 @@ import { SongsManager } from './Classes/SongsManager';
 import { HALLELUJAH } from './Songs/Hallelujah';
 import { PianoGUI } from './GUI/PianoGUI';
 
+console.log('Happy Birthday Dad :)');
+
 //SETUP: Start Tone
 window.addEventListener('load', () => {
 	Tone.start();
