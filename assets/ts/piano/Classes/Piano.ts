@@ -38,7 +38,6 @@ export class Piano {
     Tone.Transport.stop();
     Tone.Transport.position = 0;
     Tone.Transport.cancel();
-    //use an array of objects as long as the object has a "time" attribute
     const part = new Tone.Part((time, value: {time: number, note: string, duration: string}) => {
       //the value is an object which contains both the note and the duration
       this.pianoSampler.triggerAttackRelease(value!.note, value!.duration, time);
