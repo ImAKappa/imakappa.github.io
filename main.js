@@ -31,7 +31,7 @@
 
   // node_modules/@babel/runtime/helpers/iterableToArrayLimit.js
   var require_iterableToArrayLimit = __commonJS((exports, module) => {
-    function _iterableToArrayLimit(arr, i) {
+    function _iterableToArrayLimit(arr, i2) {
       var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
       if (_i == null)
         return;
@@ -42,7 +42,7 @@
       try {
         for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
           _arr.push(_s.value);
-          if (i && _arr.length === i)
+          if (i2 && _arr.length === i2)
             break;
         }
       } catch (err) {
@@ -68,8 +68,8 @@
     function _arrayLikeToArray(arr, len) {
       if (len == null || len > arr.length)
         len = arr.length;
-      for (var i = 0, arr2 = new Array(len); i < len; i++) {
-        arr2[i] = arr[i];
+      for (var i2 = 0, arr2 = new Array(len); i2 < len; i2++) {
+        arr2[i2] = arr[i2];
       }
       return arr2;
     }
@@ -112,8 +112,8 @@
     var iterableToArrayLimit = require_iterableToArrayLimit();
     var unsupportedIterableToArray = require_unsupportedIterableToArray();
     var nonIterableRest = require_nonIterableRest();
-    function _slicedToArray(arr, i) {
-      return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
+    function _slicedToArray(arr, i2) {
+      return arrayWithHoles(arr) || iterableToArrayLimit(arr, i2) || unsupportedIterableToArray(arr, i2) || nonIterableRest();
     }
     module.exports = _slicedToArray;
     module.exports["default"] = module.exports, module.exports.__esModule = true;
@@ -133,8 +133,8 @@
   // node_modules/@babel/runtime/helpers/createClass.js
   var require_createClass = __commonJS((exports, module) => {
     function _defineProperties(target, props) {
-      for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
+      for (var i2 = 0; i2 < props.length; i2++) {
+        var descriptor = props[i2];
         descriptor.enumerable = descriptor.enumerable || false;
         descriptor.configurable = true;
         if ("value" in descriptor)
@@ -501,8 +501,8 @@
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
       __assign2 = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-          s = arguments[i];
+        for (var s, i2 = 1, n = arguments.length; i2 < n; i2++) {
+          s = arguments[i2];
           for (var p in s)
             if (Object.prototype.hasOwnProperty.call(s, p))
               t[p] = s[p];
@@ -515,9 +515,9 @@
           if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
             t[p] = s[p];
         if (s != null && typeof Object.getOwnPropertySymbols === "function")
-          for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-              t[p[i]] = s[p[i]];
+          for (var i2 = 0, p = Object.getOwnPropertySymbols(s); i2 < p.length; i2++) {
+            if (e.indexOf(p[i2]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i2]))
+              t[p[i2]] = s[p[i2]];
           }
         return t;
       };
@@ -526,8 +526,8 @@
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
           r = Reflect.decorate(decorators, target, key, desc);
         else
-          for (var i = decorators.length - 1; i >= 0; i--)
-            if (d = decorators[i])
+          for (var i2 = decorators.length - 1; i2 >= 0; i2--)
+            if (d = decorators[i2])
               r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
       };
@@ -660,15 +660,15 @@
         o[k2] = m[k];
       };
       __values2 = function(o) {
-        var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+        var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i2 = 0;
         if (m)
           return m.call(o);
         if (o && typeof o.length === "number")
           return {
             next: function() {
-              if (o && i >= o.length)
+              if (o && i2 >= o.length)
                 o = void 0;
-              return {value: o && o[i++], done: !o};
+              return {value: o && o[i2++], done: !o};
             }
           };
         throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
@@ -677,16 +677,16 @@
         var m = typeof Symbol === "function" && o[Symbol.iterator];
         if (!m)
           return o;
-        var i = m.call(o), r, ar = [], e;
+        var i2 = m.call(o), r, ar = [], e;
         try {
-          while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
+          while ((n === void 0 || n-- > 0) && !(r = i2.next()).done)
             ar.push(r.value);
         } catch (error) {
           e = {error};
         } finally {
           try {
-            if (r && !r.done && (m = i["return"]))
-              m.call(i);
+            if (r && !r.done && (m = i2["return"]))
+              m.call(i2);
           } finally {
             if (e)
               throw e.error;
@@ -695,25 +695,25 @@
         return ar;
       };
       __spread2 = function() {
-        for (var ar = [], i = 0; i < arguments.length; i++)
-          ar = ar.concat(__read2(arguments[i]));
+        for (var ar = [], i2 = 0; i2 < arguments.length; i2++)
+          ar = ar.concat(__read2(arguments[i2]));
         return ar;
       };
       __spreadArrays2 = function() {
-        for (var s = 0, i = 0, il = arguments.length; i < il; i++)
-          s += arguments[i].length;
-        for (var r = Array(s), k = 0, i = 0; i < il; i++)
-          for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+        for (var s = 0, i2 = 0, il = arguments.length; i2 < il; i2++)
+          s += arguments[i2].length;
+        for (var r = Array(s), k = 0, i2 = 0; i2 < il; i2++)
+          for (var a = arguments[i2], j = 0, jl = a.length; j < jl; j++, k++)
             r[k] = a[j];
         return r;
       };
       __spreadArray2 = function(to, from, pack) {
         if (pack || arguments.length === 2)
-          for (var i = 0, l = from.length, ar; i < l; i++) {
-            if (ar || !(i in from)) {
+          for (var i2 = 0, l = from.length, ar; i2 < l; i2++) {
+            if (ar || !(i2 in from)) {
               if (!ar)
-                ar = Array.prototype.slice.call(from, 0, i);
-              ar[i] = from[i];
+                ar = Array.prototype.slice.call(from, 0, i2);
+              ar[i2] = from[i2];
             }
           }
         return to.concat(ar || from);
@@ -724,13 +724,13 @@
       __asyncGenerator2 = function(thisArg, _arguments, generator) {
         if (!Symbol.asyncIterator)
           throw new TypeError("Symbol.asyncIterator is not defined.");
-        var g = generator.apply(thisArg, _arguments || []), i, q = [];
-        return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+        var g = generator.apply(thisArg, _arguments || []), i2, q = [];
+        return i2 = {}, verb("next"), verb("throw"), verb("return"), i2[Symbol.asyncIterator] = function() {
           return this;
-        }, i;
+        }, i2;
         function verb(n) {
           if (g[n])
-            i[n] = function(v) {
+            i2[n] = function(v) {
               return new Promise(function(a, b) {
                 q.push([n, v, a, b]) > 1 || resume(n, v);
               });
@@ -758,14 +758,14 @@
         }
       };
       __asyncDelegator2 = function(o) {
-        var i, p;
-        return i = {}, verb("next"), verb("throw", function(e) {
+        var i2, p;
+        return i2 = {}, verb("next"), verb("throw", function(e) {
           throw e;
-        }), verb("return"), i[Symbol.iterator] = function() {
+        }), verb("return"), i2[Symbol.iterator] = function() {
           return this;
-        }, i;
+        }, i2;
         function verb(n, f) {
-          i[n] = o[n] ? function(v) {
+          i2[n] = o[n] ? function(v) {
             return (p = !p) ? {value: __await2(o[n](v)), done: n === "return"} : f ? f(v) : v;
           } : f;
         }
@@ -773,12 +773,12 @@
       __asyncValues2 = function(o) {
         if (!Symbol.asyncIterator)
           throw new TypeError("Symbol.asyncIterator is not defined.");
-        var m = o[Symbol.asyncIterator], i;
-        return m ? m.call(o) : (o = typeof __values2 === "function" ? __values2(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+        var m = o[Symbol.asyncIterator], i2;
+        return m ? m.call(o) : (o = typeof __values2 === "function" ? __values2(o) : o[Symbol.iterator](), i2 = {}, verb("next"), verb("throw"), verb("return"), i2[Symbol.asyncIterator] = function() {
           return this;
-        }, i);
+        }, i2);
         function verb(n) {
-          i[n] = o[n] && function(v) {
+          i2[n] = o[n] && function(v) {
             return new Promise(function(resolve, reject) {
               v = o[n](v), settle(resolve, reject, v.done, v.value);
             });
@@ -881,7 +881,7 @@
   var createAddAudioNodeConnections = (audioNodeConnectionsStore) => {
     return (audioNode, audioNodeRenderer, nativeAudioNode) => {
       const activeInputs = [];
-      for (let i = 0; i < nativeAudioNode.numberOfInputs; i += 1) {
+      for (let i2 = 0; i2 < nativeAudioNode.numberOfInputs; i2 += 1) {
         activeInputs.push(new Set());
       }
       audioNodeConnectionsStore.set(audioNode, {
@@ -2478,11 +2478,11 @@
             const lastSample = Math.floor(endTime * sampleRate);
             const numberOfInterpolatedValues = lastSample - firstSample;
             const interpolatedValues = new Float32Array(numberOfInterpolatedValues);
-            for (let i = 0; i < numberOfInterpolatedValues; i += 1) {
-              const theoreticIndex = (convertedValues.length - 1) / duration * ((firstSample + i) / sampleRate - startTime);
+            for (let i2 = 0; i2 < numberOfInterpolatedValues; i2 += 1) {
+              const theoreticIndex = (convertedValues.length - 1) / duration * ((firstSample + i2) / sampleRate - startTime);
               const lowerIndex = Math.floor(theoreticIndex);
               const upperIndex = Math.ceil(theoreticIndex);
-              interpolatedValues[i] = lowerIndex === upperIndex ? convertedValues[lowerIndex] : (1 - (theoreticIndex - lowerIndex)) * convertedValues[lowerIndex] + (1 - (upperIndex - theoreticIndex)) * convertedValues[upperIndex];
+              interpolatedValues[i2] = lowerIndex === upperIndex ? convertedValues[lowerIndex] : (1 - (theoreticIndex - lowerIndex)) * convertedValues[lowerIndex] + (1 - (upperIndex - theoreticIndex)) * convertedValues[upperIndex];
             }
             if (audioParamRenderer === null) {
               automationEventList.flush(audioNode.context.currentTime);
@@ -2660,9 +2660,9 @@
   // node_modules/standardized-audio-context/build/es2019/helpers/create-nested-arrays.js
   var createNestedArrays = (x, y) => {
     const arrays = [];
-    for (let i = 0; i < x; i += 1) {
+    for (let i2 = 0; i2 < x; i2 += 1) {
       const array = [];
-      const length = typeof y === "number" ? y : y[i];
+      const length = typeof y === "number" ? y : y[i2];
       for (let j = 0; j < length; j += 1) {
         array.push(new Float32Array(128));
       }
@@ -2692,17 +2692,17 @@
     const inputs = createNestedArrays(options.numberOfInputs, options.channelCount);
     const outputs = createNestedArrays(options.numberOfOutputs, outputChannelCount);
     const parameters = Array.from(proxy.parameters.keys()).reduce((prmtrs, name) => ({...prmtrs, [name]: new Float32Array(128)}), {});
-    for (let i = 0; i < length; i += 128) {
+    for (let i2 = 0; i2 < length; i2 += 128) {
       if (options.numberOfInputs > 0 && renderedBuffer !== null) {
         for (let j = 0; j < options.numberOfInputs; j += 1) {
           for (let k = 0; k < options.channelCount; k += 1) {
-            copyFromChannel(renderedBuffer, inputs[j], k, k, i);
+            copyFromChannel(renderedBuffer, inputs[j], k, k, i2);
           }
         }
       }
       if (processorConstructor.parameterDescriptors !== void 0 && renderedBuffer !== null) {
         processorConstructor.parameterDescriptors.forEach(({name}, index) => {
-          copyFromChannel(renderedBuffer, parameters, name, numberOfInputChannels + index, i);
+          copyFromChannel(renderedBuffer, parameters, name, numberOfInputChannels + index, i2);
         });
       }
       for (let j = 0; j < options.numberOfInputs; j += 1) {
@@ -2719,11 +2719,11 @@
           }
           return input;
         });
-        const activeSourceFlag = exposeCurrentFrameAndCurrentTime2(i / nativeOfflineAudioContext.sampleRate, nativeOfflineAudioContext.sampleRate, () => audioWorkletProcessor.process(potentiallyEmptyInputs, outputs, parameters));
+        const activeSourceFlag = exposeCurrentFrameAndCurrentTime2(i2 / nativeOfflineAudioContext.sampleRate, nativeOfflineAudioContext.sampleRate, () => audioWorkletProcessor.process(potentiallyEmptyInputs, outputs, parameters));
         if (processedBuffer !== null) {
           for (let j = 0, outputChannelSplitterNodeOutput = 0; j < options.numberOfOutputs; j += 1) {
             for (let k = 0; k < outputChannelCount[j]; k += 1) {
-              copyToChannel(processedBuffer, outputs[j], k, outputChannelSplitterNodeOutput + k, i);
+              copyToChannel(processedBuffer, outputs[j], k, outputChannelSplitterNodeOutput + k, i2);
             }
             outputChannelSplitterNodeOutput += outputChannelCount[j];
           }
@@ -2761,12 +2761,12 @@
             numberOfOutputs: Math.max(1, numberOfOutputChannels)
           });
           const outputChannelMergerNodes = [];
-          for (let i = 0; i < proxy.numberOfOutputs; i += 1) {
+          for (let i2 = 0; i2 < proxy.numberOfOutputs; i2 += 1) {
             outputChannelMergerNodes.push(createNativeChannelMergerNode2(nativeOfflineAudioContext, {
               channelCount: 1,
               channelCountMode: "explicit",
               channelInterpretation: "speakers",
-              numberOfInputs: outputChannelCount[i]
+              numberOfInputs: outputChannelCount[i2]
             }));
           }
           const outputGainNode = createNativeGainNode2(nativeOfflineAudioContext, {
@@ -2797,7 +2797,7 @@
               const partialOfflineAudioContext = new nativeOfflineAudioContextConstructor2(numberOfChannels, Math.ceil(proxy.context.length / 128) * 128, nativeOfflineAudioContext.sampleRate);
               const gainNodes = [];
               const inputChannelSplitterNodes = [];
-              for (let i = 0; i < options.numberOfInputs; i += 1) {
+              for (let i2 = 0; i2 < options.numberOfInputs; i2 += 1) {
                 gainNodes.push(createNativeGainNode2(partialOfflineAudioContext, {
                   channelCount: options.channelCount,
                   channelCountMode: options.channelCountMode,
@@ -2827,10 +2827,10 @@
                 channelInterpretation: "speakers",
                 numberOfInputs: Math.max(1, numberOfInputChannels + numberOfParameters)
               });
-              for (let i = 0; i < options.numberOfInputs; i += 1) {
-                gainNodes[i].connect(inputChannelSplitterNodes[i]);
+              for (let i2 = 0; i2 < options.numberOfInputs; i2 += 1) {
+                gainNodes[i2].connect(inputChannelSplitterNodes[i2]);
                 for (let j = 0; j < options.channelCount; j += 1) {
-                  inputChannelSplitterNodes[i].connect(inputChannelMergerNode, j, i * options.channelCount + j);
+                  inputChannelSplitterNodes[i2].connect(inputChannelMergerNode, j, i2 * options.channelCount + j);
                 }
               }
               for (const [index, constantSourceNode] of constantSourceNodes.entries()) {
@@ -2860,12 +2860,12 @@
             audioBufferSourceNode.start(0);
           }
           audioBufferSourceNode.connect(outputChannelSplitterNode);
-          for (let i = 0, outputChannelSplitterNodeOutput = 0; i < proxy.numberOfOutputs; i += 1) {
-            const outputChannelMergerNode = outputChannelMergerNodes[i];
-            for (let j = 0; j < outputChannelCount[i]; j += 1) {
+          for (let i2 = 0, outputChannelSplitterNodeOutput = 0; i2 < proxy.numberOfOutputs; i2 += 1) {
+            const outputChannelMergerNode = outputChannelMergerNodes[i2];
+            for (let j = 0; j < outputChannelCount[i2]; j += 1) {
               outputChannelSplitterNode.connect(outputChannelMergerNode, outputChannelSplitterNodeOutput + j, j);
             }
-            outputChannelSplitterNodeOutput += outputChannelCount[i];
+            outputChannelSplitterNodeOutput += outputChannelCount[i2];
           }
           return outputGainNode;
         }
@@ -4146,26 +4146,26 @@
   // node_modules/standardized-audio-context/build/es2019/helpers/filter-buffer.js
   var filterBuffer = (feedback, feedbackLength, feedforward, feedforwardLength, minLength, xBuffer, yBuffer, bufferIndex, bufferLength, input, output) => {
     const inputLength = input.length;
-    let i = bufferIndex;
+    let i2 = bufferIndex;
     for (let j = 0; j < inputLength; j += 1) {
       let y = feedforward[0] * input[j];
       for (let k = 1; k < minLength; k += 1) {
-        const x = i - k & bufferLength - 1;
+        const x = i2 - k & bufferLength - 1;
         y += feedforward[k] * xBuffer[x];
         y -= feedback[k] * yBuffer[x];
       }
       for (let k = minLength; k < feedforwardLength; k += 1) {
-        y += feedforward[k] * xBuffer[i - k & bufferLength - 1];
+        y += feedforward[k] * xBuffer[i2 - k & bufferLength - 1];
       }
       for (let k = minLength; k < feedbackLength; k += 1) {
-        y -= feedback[k] * yBuffer[i - k & bufferLength - 1];
+        y -= feedback[k] * yBuffer[i2 - k & bufferLength - 1];
       }
-      xBuffer[i] = input[j];
-      yBuffer[i] = y;
-      i = i + 1 & bufferLength - 1;
+      xBuffer[i2] = input[j];
+      yBuffer[i2] = y;
+      i2 = i2 + 1 & bufferLength - 1;
       output[j] = y;
     }
-    return i;
+    return i2;
   };
 
   // node_modules/standardized-audio-context/build/es2019/factories/iir-filter-node-renderer-factory.js
@@ -4176,11 +4176,11 @@
     const feedforwardLength = convertedFeedforward.length;
     const minLength = Math.min(feedbackLength, feedforwardLength);
     if (convertedFeedback[0] !== 1) {
-      for (let i = 0; i < feedbackLength; i += 1) {
-        convertedFeedforward[i] /= convertedFeedback[0];
+      for (let i2 = 0; i2 < feedbackLength; i2 += 1) {
+        convertedFeedforward[i2] /= convertedFeedback[0];
       }
-      for (let i = 1; i < feedforwardLength; i += 1) {
-        convertedFeedback[i] /= convertedFeedback[0];
+      for (let i2 = 1; i2 < feedforwardLength; i2 += 1) {
+        convertedFeedback[i2] /= convertedFeedback[0];
       }
     }
     const bufferLength = 32;
@@ -4188,9 +4188,9 @@
     const yBuffer = new Float32Array(bufferLength);
     const filteredBuffer = nativeOfflineAudioContext.createBuffer(renderedBuffer.numberOfChannels, renderedBuffer.length, renderedBuffer.sampleRate);
     const numberOfChannels = renderedBuffer.numberOfChannels;
-    for (let i = 0; i < numberOfChannels; i += 1) {
-      const input = renderedBuffer.getChannelData(i);
-      const output = filteredBuffer.getChannelData(i);
+    for (let i2 = 0; i2 < numberOfChannels; i2 += 1) {
+      const input = renderedBuffer.getChannelData(i2);
+      const output = filteredBuffer.getChannelData(i2);
       xBuffer.fill(0);
       yBuffer.fill(0);
       filterBuffer(convertedFeedback, feedbackLength, convertedFeedforward, feedforwardLength, minLength, xBuffer, yBuffer, 0, bufferLength, input, output);
@@ -4591,15 +4591,15 @@
         const nativeOfflineAudioContext = createNativeOfflineAudioContext2(numberOfChannels, length, sampleRate);
         if (!cacheTestResult2(testPromiseSupport, () => testPromiseSupport(nativeOfflineAudioContext))) {
           nativeOfflineAudioContext.addEventListener("statechange", (() => {
-            let i = 0;
+            let i2 = 0;
             const delayStateChangeEvent = (event) => {
               if (this._state === "running") {
-                if (i > 0) {
+                if (i2 > 0) {
                   nativeOfflineAudioContext.removeEventListener("statechange", delayStateChangeEvent);
                   event.stopImmediatePropagation();
                   this._waitForThePromiseToSettle(event);
                 } else {
-                  i += 1;
+                  i2 += 1;
                 }
               }
             };
@@ -4724,8 +4724,8 @@
       const byteTimeDomainData = new Uint8Array(array.length);
       nativeAnalyserNode.getByteTimeDomainData(byteTimeDomainData);
       const length = Math.max(byteTimeDomainData.length, nativeAnalyserNode.fftSize);
-      for (let i = 0; i < length; i += 1) {
-        array[i] = (byteTimeDomainData[i] - 128) * 78125e-7;
+      for (let i2 = 0; i2 < length; i2 += 1) {
+        array[i2] = (byteTimeDomainData[i2] - 128) * 78125e-7;
       }
       return array;
     };
@@ -5090,7 +5090,7 @@
       const messageChannel = new MessageChannel();
       const gainNodes = [];
       const inputChannelSplitterNodes = [];
-      for (let i = 0; i < options.numberOfInputs; i += 1) {
+      for (let i2 = 0; i2 < options.numberOfInputs; i2 += 1) {
         gainNodes.push(createNativeGainNode2(nativeContext, {
           channelCount: options.channelCount,
           channelCountMode: options.channelCountMode,
@@ -5142,18 +5142,18 @@
         numberOfOutputs: Math.max(1, numberOfOutputChannels)
       });
       const outputChannelMergerNodes = [];
-      for (let i = 0; i < options.numberOfOutputs; i += 1) {
+      for (let i2 = 0; i2 < options.numberOfOutputs; i2 += 1) {
         outputChannelMergerNodes.push(createNativeChannelMergerNode2(nativeContext, {
           channelCount: 1,
           channelCountMode: "explicit",
           channelInterpretation: "speakers",
-          numberOfInputs: outputChannelCount[i]
+          numberOfInputs: outputChannelCount[i2]
         }));
       }
-      for (let i = 0; i < options.numberOfInputs; i += 1) {
-        gainNodes[i].connect(inputChannelSplitterNodes[i]);
+      for (let i2 = 0; i2 < options.numberOfInputs; i2 += 1) {
+        gainNodes[i2].connect(inputChannelSplitterNodes[i2]);
         for (let j = 0; j < options.channelCount; j += 1) {
-          inputChannelSplitterNodes[i].connect(inputChannelMergerNode, j, i * options.channelCount + j);
+          inputChannelSplitterNodes[i2].connect(inputChannelMergerNode, j, i2 * options.channelCount + j);
         }
       }
       const parameterMap = new ReadOnlyMap(processorConstructor.parameterDescriptors === void 0 ? [] : processorConstructor.parameterDescriptors.map(({name}, index) => {
@@ -5291,27 +5291,27 @@
         if (options.numberOfOutputs > 0) {
           scriptProcessorNode.disconnect(outputChannelSplitterNode);
         }
-        for (let i = 0, outputChannelSplitterNodeOutput = 0; i < options.numberOfOutputs; i += 1) {
-          const outputChannelMergerNode = outputChannelMergerNodes[i];
-          for (let j = 0; j < outputChannelCount[i]; j += 1) {
+        for (let i2 = 0, outputChannelSplitterNodeOutput = 0; i2 < options.numberOfOutputs; i2 += 1) {
+          const outputChannelMergerNode = outputChannelMergerNodes[i2];
+          for (let j = 0; j < outputChannelCount[i2]; j += 1) {
             outputChannelSplitterNode.disconnect(outputChannelMergerNode, outputChannelSplitterNodeOutput + j, j);
           }
-          outputChannelSplitterNodeOutput += outputChannelCount[i];
+          outputChannelSplitterNodeOutput += outputChannelCount[i2];
         }
       };
       const activeInputIndexes = new Map();
       scriptProcessorNode.onaudioprocess = ({inputBuffer, outputBuffer}) => {
         if (audioWorkletProcessor !== null) {
           const activeInputs = getActiveAudioWorkletNodeInputs2(nativeAudioWorkletNodeFaker);
-          for (let i = 0; i < bufferSize; i += 128) {
+          for (let i2 = 0; i2 < bufferSize; i2 += 128) {
             for (let j = 0; j < options.numberOfInputs; j += 1) {
               for (let k = 0; k < options.channelCount; k += 1) {
-                copyFromChannel(inputBuffer, inputs[j], k, k, i);
+                copyFromChannel(inputBuffer, inputs[j], k, k, i2);
               }
             }
             if (processorConstructor.parameterDescriptors !== void 0) {
               processorConstructor.parameterDescriptors.forEach(({name}, index) => {
-                copyFromChannel(inputBuffer, parameters, name, numberOfInputChannels + index, i);
+                copyFromChannel(inputBuffer, parameters, name, numberOfInputChannels + index, i2);
               });
             }
             for (let j = 0; j < options.numberOfInputs; j += 1) {
@@ -5341,11 +5341,11 @@
                 }
                 return input;
               });
-              const activeSourceFlag = exposeCurrentFrameAndCurrentTime2(nativeContext.currentTime + i / nativeContext.sampleRate, nativeContext.sampleRate, () => audioWorkletProcessor.process(potentiallyEmptyInputs, outputs, parameters));
+              const activeSourceFlag = exposeCurrentFrameAndCurrentTime2(nativeContext.currentTime + i2 / nativeContext.sampleRate, nativeContext.sampleRate, () => audioWorkletProcessor.process(potentiallyEmptyInputs, outputs, parameters));
               isActive = activeSourceFlag;
               for (let j = 0, outputChannelSplitterNodeOutput = 0; j < options.numberOfOutputs; j += 1) {
                 for (let k = 0; k < outputChannelCount[j]; k += 1) {
-                  copyToChannel(outputBuffer, outputs[j], k, outputChannelSplitterNodeOutput + k, i);
+                  copyToChannel(outputBuffer, outputs[j], k, outputChannelSplitterNodeOutput + k, i2);
                 }
                 outputChannelSplitterNodeOutput += outputChannelCount[j];
               }
@@ -5362,7 +5362,7 @@
               for (let j = 0; j < options.numberOfInputs; j += 1) {
                 gainNodes[j].disconnect(inputChannelSplitterNodes[j]);
                 for (let k = 0; k < options.channelCount; k += 1) {
-                  inputChannelSplitterNodes[i].disconnect(inputChannelMergerNode, k, j * options.channelCount + k);
+                  inputChannelSplitterNodes[i2].disconnect(inputChannelMergerNode, k, j * options.channelCount + k);
                 }
               }
               if (processorConstructor.parameterDescriptors !== void 0) {
@@ -5403,12 +5403,12 @@
           if (options.numberOfOutputs > 0) {
             scriptProcessorNode.connect(outputChannelSplitterNode);
           }
-          for (let i = 0, outputChannelSplitterNodeOutput = 0; i < options.numberOfOutputs; i += 1) {
-            const outputChannelMergerNode = outputChannelMergerNodes[i];
-            for (let j = 0; j < outputChannelCount[i]; j += 1) {
+          for (let i2 = 0, outputChannelSplitterNodeOutput = 0; i2 < options.numberOfOutputs; i2 += 1) {
+            const outputChannelMergerNode = outputChannelMergerNodes[i2];
+            for (let j = 0; j < outputChannelCount[i2]; j += 1) {
               outputChannelSplitterNode.connect(outputChannelMergerNode, outputChannelSplitterNodeOutput + j, j);
             }
-            outputChannelSplitterNodeOutput += outputChannelCount[i];
+            outputChannelSplitterNodeOutput += outputChannelCount[i2];
           }
         }
         isConnected = true;
@@ -5688,9 +5688,9 @@
   }
   function evaluatePolynomial(coefficient, z) {
     let result = [0, 0];
-    for (let i = coefficient.length - 1; i >= 0; i -= 1) {
+    for (let i2 = coefficient.length - 1; i2 >= 0; i2 -= 1) {
       result = multiply(result, z);
-      result[0] += coefficient[i];
+      result[0] += coefficient[i2];
     }
     return result;
   }
@@ -5715,11 +5715,11 @@
         throw createInvalidStateError2();
       }
       if (convertedFeedback[0] !== 1) {
-        for (let i = 0; i < feedforwardLength; i += 1) {
-          convertedFeedforward[i] /= convertedFeedback[0];
+        for (let i2 = 0; i2 < feedforwardLength; i2 += 1) {
+          convertedFeedforward[i2] /= convertedFeedback[0];
         }
-        for (let i = 1; i < feedbackLength; i += 1) {
-          convertedFeedback[i] /= convertedFeedback[0];
+        for (let i2 = 1; i2 < feedbackLength; i2 += 1) {
+          convertedFeedback[i2] /= convertedFeedback[0];
         }
       }
       const scriptProcessorNode = createNativeScriptProcessorNode2(nativeContext, bufferSize, channelCount, channelCount);
@@ -5730,7 +5730,7 @@
       const bufferIndexes = [];
       const xBuffers = [];
       const yBuffers = [];
-      for (let i = 0; i < channelCount; i += 1) {
+      for (let i2 = 0; i2 < channelCount; i2 += 1) {
         bufferIndexes.push(0);
         const xBuffer = new Float32Array(bufferLength);
         const yBuffer = new Float32Array(bufferLength);
@@ -5743,10 +5743,10 @@
         const inputBuffer = event.inputBuffer;
         const outputBuffer = event.outputBuffer;
         const numberOfChannels = inputBuffer.numberOfChannels;
-        for (let i = 0; i < numberOfChannels; i += 1) {
-          const input = inputBuffer.getChannelData(i);
-          const output = outputBuffer.getChannelData(i);
-          bufferIndexes[i] = filterBuffer(convertedFeedback, feedbackLength, convertedFeedforward, feedforwardLength, minLength, xBuffers[i], yBuffers[i], bufferIndexes[i], bufferLength, input, output);
+        for (let i2 = 0; i2 < numberOfChannels; i2 += 1) {
+          const input = inputBuffer.getChannelData(i2);
+          const output = outputBuffer.getChannelData(i2);
+          bufferIndexes[i2] = filterBuffer(convertedFeedback, feedbackLength, convertedFeedforward, feedforwardLength, minLength, xBuffers[i2], yBuffers[i2], bufferIndexes[i2], bufferLength, input, output);
         }
       };
       const nyquist = nativeContext.sampleRate / 2;
@@ -5795,14 +5795,14 @@
             throw createInvalidAccessError2();
           }
           const length = frequencyHz.length;
-          for (let i = 0; i < length; i += 1) {
-            const omega = -Math.PI * (frequencyHz[i] / nyquist);
+          for (let i2 = 0; i2 < length; i2 += 1) {
+            const omega = -Math.PI * (frequencyHz[i2] / nyquist);
             const z = [Math.cos(omega), Math.sin(omega)];
             const numerator = evaluatePolynomial(convertedFeedforward, z);
             const denominator = evaluatePolynomial(convertedFeedback, z);
             const response = divide(numerator, denominator);
-            magResponse[i] = Math.sqrt(response[0] * response[0] + response[1] * response[1]);
-            phaseResponse[i] = Math.atan2(response[1], response[0]);
+            magResponse[i2] = Math.sqrt(response[0] * response[0] + response[1] * response[1]);
+            phaseResponse[i2] = Math.atan2(response[1], response[0]);
           }
         },
         removeEventListener(...args) {
@@ -6245,10 +6245,10 @@
     const buildInternalGraphForMono = (nativeContext, inputGainNode, panGainNode, channelMergerNode) => {
       const leftWaveShaperCurve = new Float32Array(CURVE_SIZE);
       const rightWaveShaperCurve = new Float32Array(CURVE_SIZE);
-      for (let i = 0; i < CURVE_SIZE; i += 1) {
-        const x = i / (CURVE_SIZE - 1) * HALF_PI;
-        leftWaveShaperCurve[i] = Math.cos(x);
-        rightWaveShaperCurve[i] = Math.sin(x);
+      for (let i2 = 0; i2 < CURVE_SIZE; i2 += 1) {
+        const x = i2 / (CURVE_SIZE - 1) * HALF_PI;
+        leftWaveShaperCurve[i2] = Math.cos(x);
+        rightWaveShaperCurve[i2] = Math.sin(x);
       }
       const leftGainNode = createNativeGainNode2(nativeContext, {...SINGLE_CHANNEL_OPTIONS, gain: 0});
       const leftWaveShaperNode = createNativeWaveShaperNode2(nativeContext, {...SINGLE_CHANNEL_WAVE_SHAPER_OPTIONS, curve: leftWaveShaperCurve});
@@ -6288,19 +6288,19 @@
       const rightInputForLeftOutputWaveShaperCurve = new Float32Array(CURVE_SIZE);
       const rightInputForRightOutputWaveShaperCurve = new Float32Array(CURVE_SIZE);
       const centerIndex = Math.floor(CURVE_SIZE / 2);
-      for (let i = 0; i < CURVE_SIZE; i += 1) {
-        if (i > centerIndex) {
-          const x = (i - centerIndex) / (CURVE_SIZE - 1 - centerIndex) * HALF_PI;
-          leftInputForLeftOutputWaveShaperCurve[i] = Math.cos(x);
-          leftInputForRightOutputWaveShaperCurve[i] = Math.sin(x);
-          rightInputForLeftOutputWaveShaperCurve[i] = 0;
-          rightInputForRightOutputWaveShaperCurve[i] = 1;
+      for (let i2 = 0; i2 < CURVE_SIZE; i2 += 1) {
+        if (i2 > centerIndex) {
+          const x = (i2 - centerIndex) / (CURVE_SIZE - 1 - centerIndex) * HALF_PI;
+          leftInputForLeftOutputWaveShaperCurve[i2] = Math.cos(x);
+          leftInputForRightOutputWaveShaperCurve[i2] = Math.sin(x);
+          rightInputForLeftOutputWaveShaperCurve[i2] = 0;
+          rightInputForRightOutputWaveShaperCurve[i2] = 1;
         } else {
-          const x = i / (CURVE_SIZE - 1 - centerIndex) * HALF_PI;
-          leftInputForLeftOutputWaveShaperCurve[i] = 1;
-          leftInputForRightOutputWaveShaperCurve[i] = 0;
-          rightInputForLeftOutputWaveShaperCurve[i] = Math.cos(x);
-          rightInputForRightOutputWaveShaperCurve[i] = Math.sin(x);
+          const x = i2 / (CURVE_SIZE - 1 - centerIndex) * HALF_PI;
+          leftInputForLeftOutputWaveShaperCurve[i2] = 1;
+          leftInputForRightOutputWaveShaperCurve[i2] = 0;
+          rightInputForLeftOutputWaveShaperCurve[i2] = Math.cos(x);
+          rightInputForRightOutputWaveShaperCurve[i2] = Math.sin(x);
         }
       }
       const channelSplitterNode = createNativeChannelSplitterNode2(nativeContext, {
@@ -6594,12 +6594,12 @@
             positiveCurve[0] = -value[curveLength - 1];
             const length = Math.ceil((curveLength + 1) / 2);
             const centerIndex = (curveLength + 1) / 2 - 1;
-            for (let i = 1; i < length; i += 1) {
-              const theoreticIndex = i / length * centerIndex;
+            for (let i2 = 1; i2 < length; i2 += 1) {
+              const theoreticIndex = i2 / length * centerIndex;
               const lowerIndex = Math.floor(theoreticIndex);
               const upperIndex = Math.ceil(theoreticIndex);
-              negativeCurve[i] = lowerIndex === upperIndex ? value[lowerIndex] : (1 - (theoreticIndex - lowerIndex)) * value[lowerIndex] + (1 - (upperIndex - theoreticIndex)) * value[upperIndex];
-              positiveCurve[i] = lowerIndex === upperIndex ? -value[curveLength - 1 - lowerIndex] : -((1 - (theoreticIndex - lowerIndex)) * value[curveLength - 1 - lowerIndex]) - (1 - (upperIndex - theoreticIndex)) * value[curveLength - 1 - upperIndex];
+              negativeCurve[i2] = lowerIndex === upperIndex ? value[lowerIndex] : (1 - (theoreticIndex - lowerIndex)) * value[lowerIndex] + (1 - (upperIndex - theoreticIndex)) * value[upperIndex];
+              positiveCurve[i2] = lowerIndex === upperIndex ? -value[curveLength - 1 - lowerIndex] : -((1 - (theoreticIndex - lowerIndex)) * value[curveLength - 1 - lowerIndex]) - (1 - (upperIndex - theoreticIndex)) * value[curveLength - 1 - upperIndex];
             }
             negativeCurve[length] = curveLength % 2 === 1 ? value[length - 1] : (value[length - 2] + value[length - 1]) / 2;
             negativeWaveShaperNode.curve = negativeCurve;
@@ -6694,15 +6694,15 @@
         const nativeOfflineAudioContext = createNativeOfflineAudioContext2(numberOfChannels, length, sampleRate);
         if (!cacheTestResult2(testPromiseSupport, () => testPromiseSupport(nativeOfflineAudioContext))) {
           nativeOfflineAudioContext.addEventListener("statechange", (() => {
-            let i = 0;
+            let i2 = 0;
             const delayStateChangeEvent = (event) => {
               if (this._state === "running") {
-                if (i > 0) {
+                if (i2 > 0) {
                   nativeOfflineAudioContext.removeEventListener("statechange", delayStateChangeEvent);
                   event.stopImmediatePropagation();
                   this._waitForThePromiseToSettle(event);
                 } else {
-                  i += 1;
+                  i2 += 1;
                 }
               }
             };
@@ -7065,9 +7065,9 @@
                 await renderAutomation2(partialOfflineAudioContext, audioParam, nativeConstantSourceNode.offset, trace);
                 return nativeConstantSourceNode;
               }));
-              for (let i = 0; i < 6; i += 1) {
-                nativeConstantSourceNodes[i].connect(nativeChannelMergerNode, 0, i);
-                nativeConstantSourceNodes[i].start(0);
+              for (let i2 = 0; i2 < 6; i2 += 1) {
+                nativeConstantSourceNodes[i2].connect(nativeChannelMergerNode, 0, i2);
+                nativeConstantSourceNodes[i2].start(0);
               }
               return renderNativeOfflineAudioContext2(partialOfflineAudioContext);
             })();
@@ -7076,8 +7076,8 @@
           const inputGainNode = createNativeGainNode2(nativeOfflineAudioContext, {...commonAudioNodeOptions, gain: 1});
           await renderInputsOfAudioNode2(proxy, nativeOfflineAudioContext, inputGainNode, trace);
           const channelDatas = [];
-          for (let i = 0; i < renderedBuffer.numberOfChannels; i += 1) {
-            channelDatas.push(renderedBuffer.getChannelData(i));
+          for (let i2 = 0; i2 < renderedBuffer.numberOfChannels; i2 += 1) {
+            channelDatas.push(renderedBuffer.getChannelData(i2));
           }
           let lastOrientation = [channelDatas[0][0], channelDatas[1][0], channelDatas[2][0]];
           let lastPosition = [channelDatas[3][0], channelDatas[4][0], channelDatas[5][0]];
@@ -7093,13 +7093,13 @@
           });
           inputGainNode.connect(gateGainNode).connect(partialPannerNode.inputs[0]);
           partialPannerNode.connect(nativeGainNode);
-          for (let i = 128; i < renderedBuffer.length; i += 128) {
-            const orientation = [channelDatas[0][i], channelDatas[1][i], channelDatas[2][i]];
-            const positon = [channelDatas[3][i], channelDatas[4][i], channelDatas[5][i]];
+          for (let i2 = 128; i2 < renderedBuffer.length; i2 += 128) {
+            const orientation = [channelDatas[0][i2], channelDatas[1][i2], channelDatas[2][i2]];
+            const positon = [channelDatas[3][i2], channelDatas[4][i2], channelDatas[5][i2]];
             if (orientation.some((value, index) => value !== lastOrientation[index]) || positon.some((value, index) => value !== lastPosition[index])) {
               lastOrientation = orientation;
               lastPosition = positon;
-              const currentTime = i / nativeOfflineAudioContext.sampleRate;
+              const currentTime = i2 / nativeOfflineAudioContext.sampleRate;
               gateGainNode.gain.setValueAtTime(0, currentTime);
               gateGainNode = createNativeGainNode2(nativeOfflineAudioContext, {...commonAudioNodeOptions, gain: 0});
               partialPannerNode = createNativePannerNode2(nativeOfflineAudioContext, {
@@ -7510,8 +7510,8 @@
         const audioBufferLength = audioBuffer.length;
         const channelData = audioBuffer.getChannelData(channelNumber);
         const destinationLength = destination.length;
-        for (let i = bufferOffset < 0 ? -bufferOffset : 0; i + bufferOffset < audioBufferLength && i < destinationLength; i += 1) {
-          destination[i] = channelData[i + bufferOffset];
+        for (let i2 = bufferOffset < 0 ? -bufferOffset : 0; i2 + bufferOffset < audioBufferLength && i2 < destinationLength; i2 += 1) {
+          destination[i2] = channelData[i2 + bufferOffset];
         }
       };
       audioBuffer.copyToChannel = (source, channelNumberAsNumber, bufferOffsetAsNumber = 0) => {
@@ -7523,8 +7523,8 @@
         const audioBufferLength = audioBuffer.length;
         const channelData = audioBuffer.getChannelData(channelNumber);
         const sourceLength = source.length;
-        for (let i = bufferOffset < 0 ? -bufferOffset : 0; i + bufferOffset < audioBufferLength && i < sourceLength; i += 1) {
-          channelData[i + bufferOffset] = source[i];
+        for (let i2 = bufferOffset < 0 ? -bufferOffset : 0; i2 + bufferOffset < audioBufferLength && i2 < sourceLength; i2 += 1) {
+          channelData[i2 + bufferOffset] = source[i2];
         }
       };
     };
@@ -7590,8 +7590,8 @@
       const audioBufferSourceNode = nativeContext.createBufferSource();
       const whenConnected = () => {
         const length = channelMergerNode.numberOfInputs;
-        for (let i = 0; i < length; i += 1) {
-          audioBufferSourceNode.connect(channelMergerNode, 0, i);
+        for (let i2 = 0; i2 < length; i2 += 1) {
+          audioBufferSourceNode.connect(channelMergerNode, 0, i2);
         }
       };
       const whenDisconnected = () => audioBufferSourceNode.disconnect(channelMergerNode);
@@ -8168,9 +8168,9 @@
     if (args.length === 1 && isObject(args[0])) {
       deepMerge(opts, args[0]);
     } else {
-      for (let i = 0; i < keys2.length; i++) {
-        if (isDefined(args[i])) {
-          opts[keys2[i]] = args[i];
+      for (let i2 = 0; i2 < keys2.length; i2++) {
+        if (isDefined(args[i2])) {
+          opts[keys2[i2]] = args[i2];
         }
       }
     }
@@ -8322,9 +8322,9 @@
         let index = this._search(after);
         if (index >= 0) {
           if (EQ(this._timeline[index].time, after)) {
-            for (let i = index; i >= 0; i--) {
-              if (EQ(this._timeline[i].time, after)) {
-                index = i;
+            for (let i2 = index; i2 >= 0; i2--) {
+              if (EQ(this._timeline[i2].time, after)) {
+                index = i2;
               } else {
                 break;
               }
@@ -8373,10 +8373,10 @@
         const event = this._timeline[midPoint];
         const nextEvent = this._timeline[midPoint + 1];
         if (EQ(event[param], time)) {
-          for (let i = midPoint; i < this._timeline.length; i++) {
-            const testEvent = this._timeline[i];
+          for (let i2 = midPoint; i2 < this._timeline.length; i2++) {
+            const testEvent = this._timeline[i2];
             if (EQ(testEvent[param], time)) {
-              midPoint = i;
+              midPoint = i2;
             } else {
               break;
             }
@@ -8439,9 +8439,9 @@
       const upperBound = this._search(time);
       if (upperBound !== -1 && EQ(this._timeline[upperBound].time, time)) {
         let lowerBound = upperBound;
-        for (let i = upperBound; i >= 0; i--) {
-          if (EQ(this._timeline[i].time, time)) {
-            lowerBound = i;
+        for (let i2 = upperBound; i2 >= 0; i2--) {
+          if (EQ(this._timeline[i2].time, time)) {
+            lowerBound = i2;
           } else {
             break;
           }
@@ -8513,9 +8513,9 @@
             this._events[event] = [];
           } else {
             const eventList = this._events[event];
-            for (let i = eventList.length - 1; i >= 0; i--) {
-              if (eventList[i] === callback) {
-                eventList.splice(i, 1);
+            for (let i2 = eventList.length - 1; i2 >= 0; i2--) {
+              if (eventList[i2] === callback) {
+                eventList.splice(i2, 1);
               }
             }
           }
@@ -8527,8 +8527,8 @@
       if (this._events) {
         if (this._events.hasOwnProperty(event)) {
           const eventList = this._events[event].slice(0);
-          for (let i = 0, len = eventList.length; i < len; i++) {
-            eventList[i].apply(this, args);
+          for (let i2 = 0, len = eventList.length; i2 < len; i2++) {
+            eventList[i2].apply(this, args);
           }
         }
       }
@@ -8797,8 +8797,8 @@
       } else {
         const buffer = this._context.createBuffer(1, 128, this._context.sampleRate);
         const arr = buffer.getChannelData(0);
-        for (let i = 0; i < arr.length; i++) {
-          arr[i] = val;
+        for (let i2 = 0; i2 < arr.length; i2++) {
+          arr[i2] = val;
         }
         const constant = this._context.createBufferSource();
         constant.channelCount = 1;
@@ -9113,8 +9113,8 @@
         const numChannels = this.numberOfChannels;
         for (let channel = 0; channel < numChannels; channel++) {
           const channelArray = this.toArray(channel);
-          for (let i = 0; i < channelArray.length; i++) {
-            outputArray[i] += channelArray[i];
+          for (let i2 = 0; i2 < channelArray.length; i2++) {
+            outputArray[i2] += channelArray[i2];
           }
         }
         outputArray = outputArray.map((sample) => sample / numChannels);
@@ -9155,8 +9155,8 @@
     }
     _reverse() {
       if (this.loaded) {
-        for (let i = 0; i < this.numberOfChannels; i++) {
-          this.getChannelData(i).reverse();
+        for (let i2 = 0; i2 < this.numberOfChannels; i2++) {
+          this.getChannelData(i2).reverse();
         }
       }
       return this;
@@ -9878,8 +9878,8 @@
     }
     getLastState(state, time) {
       const index = this._search(time);
-      for (let i = index; i >= 0; i--) {
-        const event = this._timeline[i];
+      for (let i2 = index; i2 >= 0; i2--) {
+        const event = this._timeline[i2];
         if (event.state === state) {
           return event;
         }
@@ -9888,8 +9888,8 @@
     getNextState(state, time) {
       const index = this._search(time);
       if (index !== -1) {
-        for (let i = index; i < this._timeline.length; i++) {
-          const event = this._timeline[i];
+        for (let i2 = index; i2 < this._timeline.length; i2++) {
+          const event = this._timeline[i2];
           if (event.state === state) {
             return event;
           }
@@ -10139,9 +10139,9 @@
       const startingValue = this._fromType(values[0]) * scaling;
       this.setValueAtTime(this._toType(startingValue), startTime);
       const segTime = duration / (values.length - 1);
-      for (let i = 1; i < values.length; i++) {
-        const numericValue = this._fromType(values[i]) * scaling;
-        this.linearRampToValueAtTime(this._toType(numericValue), startTime + i * segTime);
+      for (let i2 = 1; i2 < values.length; i2++) {
+        const numericValue = this._fromType(values[i2]) * scaling;
+        this.linearRampToValueAtTime(this._toType(numericValue), startTime + i2 * segTime);
       }
       return this;
     }
@@ -10201,8 +10201,8 @@
         const nextEvent = this._events.getAfter(previousEvent.time);
         const endTime = nextEvent ? nextEvent.time : now + 2;
         const subdivisions = (endTime - now) / 10;
-        for (let i = now; i < endTime; i += subdivisions) {
-          param.linearRampToValueAtTime(this.getValueAtTime(i), i);
+        for (let i2 = now; i2 < endTime; i2 += subdivisions) {
+          param.linearRampToValueAtTime(this.getValueAtTime(i2), i2);
         }
       }
       this._events.forEachAfter(this.context.currentTime, (event) => {
@@ -10778,8 +10778,8 @@
       const computedValue = this._fromType(value);
       const prevEvent = this._events.get(time);
       const segments = Math.round(Math.max(1 / constant, 1));
-      for (let i = 0; i <= segments; i++) {
-        const segTime = constant * i + time;
+      for (let i2 = 0; i2 <= segments; i2++) {
+        const segTime = constant * i2 + time;
         const rampVal = this._exponentialApproach(prevEvent.time, prevEvent.value, computedValue, constant, segTime);
         this.linearRampToValueAtTime(this._toType(rampVal), segTime);
       }
@@ -10809,8 +10809,8 @@
       const prevEvent = this._events.get(time);
       const segments = Math.round(Math.max((time - prevEvent.time) * 10, 1));
       const segmentDur = (time - prevEvent.time) / segments;
-      for (let i = 0; i <= segments; i++) {
-        const segTime = segmentDur * i + prevEvent.time;
+      for (let i2 = 0; i2 <= segments; i2++) {
+        const segTime = segmentDur * i2 + prevEvent.time;
         const rampVal = this._exponentialInterpolate(prevEvent.time, prevEvent.value, time, computedVal, segTime);
         this.linearRampToValueAtTime(this._toType(rampVal), segTime);
       }
@@ -11591,9 +11591,9 @@
         this._root.search(time, results);
         if (results.length > 0) {
           let max = results[0];
-          for (let i = 1; i < results.length; i++) {
-            if (results[i].low > max.low) {
-              max = results[i];
+          for (let i2 = 1; i2 < results.length; i2++) {
+            if (results[i2].low > max.low) {
+              max = results[i2];
             }
           }
           return max.event;
@@ -12253,12 +12253,12 @@
       return this;
     }
     unsyncSignal(signal) {
-      for (let i = this._syncedSignals.length - 1; i >= 0; i--) {
-        const syncedSignal = this._syncedSignals[i];
+      for (let i2 = this._syncedSignals.length - 1; i2 >= 0; i2--) {
+        const syncedSignal = this._syncedSignals[i2];
         if (syncedSignal.signal === signal) {
           syncedSignal.ratio.dispose();
           syncedSignal.signal.value = syncedSignal.initial;
-          this._syncedSignals.splice(i, 1);
+          this._syncedSignals.splice(i2, 1);
         }
       }
       return this;
@@ -12818,7 +12818,7 @@
         }
       } else {
         const fullPartials = new Float32Array(p);
-        this._partials.forEach((v, i) => fullPartials[i] = v);
+        this._partials.forEach((v, i2) => fullPartials[i2] = v);
         this._partials = Array.from(fullPartials);
         this.type = this._type;
       }
@@ -12892,8 +12892,8 @@
     _inverseFFT(real, imag, phase) {
       let sum = 0;
       const len = real.length;
-      for (let i = 0; i < len; i++) {
-        sum += real[i] * Math.cos(i * phase) + imag[i] * Math.sin(i * phase);
+      for (let i2 = 0; i2 < len; i2++) {
+        sum += real[i2] * Math.cos(i2 * phase) + imag[i2] * Math.sin(i2 * phase);
       }
       return sum;
     }
@@ -12902,8 +12902,8 @@
       let maxValue = 0;
       const twoPi = Math.PI * 2;
       const testPositions = 32;
-      for (let i = 0; i < testPositions; i++) {
-        maxValue = Math.max(this._inverseFFT(real, imag, i / testPositions * twoPi), maxValue);
+      for (let i2 = 0; i2 < testPositions; i2++) {
+        maxValue = Math.max(this._inverseFFT(real, imag, i2 / testPositions * twoPi), maxValue);
       }
       return clamp(-this._inverseFFT(real, imag, this._phase) / maxValue, -1, 1);
     }
@@ -12975,9 +12975,9 @@
     }
     setMap(mapping, length = 1024) {
       const array = new Float32Array(length);
-      for (let i = 0, len = length; i < len; i++) {
-        const normalized = i / (len - 1) * 2 - 1;
-        array[i] = mapping(normalized, i);
+      for (let i2 = 0, len = length; i2 < len; i2++) {
+        const normalized = i2 / (len - 1) * 2 - 1;
+        array[i2] = mapping(normalized, i2);
       }
       this.curve = array;
       return this;
@@ -13416,8 +13416,8 @@
       this._forEach((osc) => osc.restart(time));
     }
     _forEach(iterator) {
-      for (let i = 0; i < this._oscillators.length; i++) {
-        iterator(this._oscillators[i], i);
+      for (let i2 = 0; i2 < this._oscillators.length; i2++) {
+        iterator(this._oscillators[i2], i2);
       }
     }
     get type() {
@@ -13435,7 +13435,7 @@
       if (this._oscillators.length > 1) {
         const start2 = -spread / 2;
         const step = spread / (this._oscillators.length - 1);
-        this._forEach((osc, i) => osc.detune.value = start2 + step * i);
+        this._forEach((osc, i2) => osc.detune.value = start2 + step * i2);
       }
     }
     get count() {
@@ -13446,14 +13446,14 @@
       if (this._oscillators.length !== count) {
         this._forEach((osc) => osc.dispose());
         this._oscillators = [];
-        for (let i = 0; i < count; i++) {
+        for (let i2 = 0; i2 < count; i2++) {
           const osc = new Oscillator({
             context: this.context,
             volume: -6 - count * 1.1,
             type: this._type,
-            phase: this._phase + i / count * 360,
+            phase: this._phase + i2 / count * 360,
             partialCount: this._partialCount,
-            onstop: i === 0 ? () => this.onstop(this) : noOp
+            onstop: i2 === 0 ? () => this.onstop(this) : noOp
           });
           if (this.type === "custom") {
             osc.partials = this._partials;
@@ -13462,7 +13462,7 @@
           this.detune.connect(osc.detune);
           osc.detune.overridden = false;
           osc.connect(this.output);
-          this._oscillators[i] = osc;
+          this._oscillators[i2] = osc;
         }
         this.spread = this._spread;
         if (this.state === "started") {
@@ -13475,7 +13475,7 @@
     }
     set phase(phase) {
       this._phase = phase;
-      this._forEach((osc, i) => osc.phase = this._phase + i / this.count * 360);
+      this._forEach((osc, i2) => osc.phase = this._phase + i2 / this.count * 360);
     }
     get baseType() {
       return this._oscillators[0].baseType;
@@ -14182,9 +14182,9 @@
       } else {
         this._sig.cancelAndHoldAtTime(time);
         let curve = this._attackCurve;
-        for (let i = 1; i < curve.length; i++) {
-          if (curve[i - 1] <= currentValue && currentValue <= curve[i]) {
-            curve = this._attackCurve.slice(i);
+        for (let i2 = 1; i2 < curve.length; i2++) {
+          if (curve[i2 - 1] <= currentValue && currentValue <= curve[i2]) {
+            curve = this._attackCurve.slice(i2);
             curve[0] = currentValue;
             break;
           }
@@ -14280,36 +14280,36 @@
   ], Envelope.prototype, "release", void 0);
   var EnvelopeCurves = (() => {
     const curveLen = 128;
-    let i;
+    let i2;
     let k;
     const cosineCurve = [];
-    for (i = 0; i < curveLen; i++) {
-      cosineCurve[i] = Math.sin(i / (curveLen - 1) * (Math.PI / 2));
+    for (i2 = 0; i2 < curveLen; i2++) {
+      cosineCurve[i2] = Math.sin(i2 / (curveLen - 1) * (Math.PI / 2));
     }
     const rippleCurve = [];
     const rippleCurveFreq = 6.4;
-    for (i = 0; i < curveLen - 1; i++) {
-      k = i / (curveLen - 1);
+    for (i2 = 0; i2 < curveLen - 1; i2++) {
+      k = i2 / (curveLen - 1);
       const sineWave = Math.sin(k * (Math.PI * 2) * rippleCurveFreq - Math.PI / 2) + 1;
-      rippleCurve[i] = sineWave / 10 + k * 0.83;
+      rippleCurve[i2] = sineWave / 10 + k * 0.83;
     }
     rippleCurve[curveLen - 1] = 1;
     const stairsCurve = [];
     const steps = 5;
-    for (i = 0; i < curveLen; i++) {
-      stairsCurve[i] = Math.ceil(i / (curveLen - 1) * steps) / steps;
+    for (i2 = 0; i2 < curveLen; i2++) {
+      stairsCurve[i2] = Math.ceil(i2 / (curveLen - 1) * steps) / steps;
     }
     const sineCurve = [];
-    for (i = 0; i < curveLen; i++) {
-      k = i / (curveLen - 1);
-      sineCurve[i] = 0.5 * (1 - Math.cos(Math.PI * k));
+    for (i2 = 0; i2 < curveLen; i2++) {
+      k = i2 / (curveLen - 1);
+      sineCurve[i2] = 0.5 * (1 - Math.cos(Math.PI * k));
     }
     const bounceCurve = [];
-    for (i = 0; i < curveLen; i++) {
-      k = i / (curveLen - 1);
+    for (i2 = 0; i2 < curveLen; i2++) {
+      k = i2 / (curveLen - 1);
       const freq = Math.pow(k, 3) * 4 + 0.2;
       const val = Math.cos(freq * Math.PI * 2 * k);
-      bounceCurve[i] = Math.abs(val * (1 - k));
+      bounceCurve[i2] = Math.abs(val * (1 - k));
     }
     function invertCurve(curve) {
       const out = new Array(curve.length);
@@ -15829,6 +15829,11 @@
       this.songManagerGUI.playBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
           this.playLine(parseInt(btn.dataset.line));
+          this.songManagerGUI.reset();
+          this.songManagerGUI.playBtns.forEach((btn2) => {
+            btn2.classList.remove("btn-active");
+          });
+          btn.classList.add("btn-active");
         });
       });
       this.songManagerGUI.restartBtn.addEventListener("click", () => {
@@ -15858,6 +15863,7 @@
         this.setBPM(parseInt(this.bpmInput.value));
       });
       this.songsManager = songsManager2;
+      this.bpmInput.value = this.songsManager.bpm.toString();
     }
     loadSong(song) {
       this.songTitleDiv.textContent = song.title;
@@ -15866,11 +15872,11 @@
     }
     init() {
       this.reset();
-      this.songsManager.song.lines.forEach((line, i) => {
+      this.songsManager.song.lines.forEach((line, i2) => {
         let playBtn = document.createElement("button");
-        playBtn.dataset.line = `${i + 1}`;
+        playBtn.dataset.line = `${i2 + 1}`;
         playBtn.classList.add("play", "btn", "btn-piano");
-        playBtn.textContent = `Line ${i + 1}`;
+        playBtn.textContent = `Line ${i2 + 1}`;
         this.songsGUIParentDiv.appendChild(playBtn);
       });
       this.playBtns = document.querySelectorAll(".play");
@@ -15883,7 +15889,6 @@
         }
       });
       this.currentKey = document.querySelector(`[data-note="${this.songsManager.getCurrentNote()}"]`);
-      Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
       this.currentKey?.classList.toggle("current-note");
       this.draw();
     }
@@ -15905,7 +15910,6 @@
       this.currentKey?.classList.toggle("current-note");
       this.songsManager.update();
       this.currentKey = document.querySelector(`[data-note="${this.songsManager.getCurrentNote()}"]`);
-      Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
       this.currentKey?.classList.toggle("current-note");
     }
     draw() {
@@ -15924,7 +15928,6 @@
       }
       this.currentKey?.classList.toggle("current-note");
       this.currentKey = document.querySelector(`[data-note="${this.songsManager.getCurrentNote()}"]`);
-      Logger.log(`[data-note="${this.songsManager.getCurrentNote()}"]`);
       this.currentKey?.classList.toggle("current-note");
     }
     setBPM(bpm) {
@@ -15935,15 +15938,18 @@
   // ns-hugo:/home/runner/work/imakappa.github.io/imakappa.github.io/assets/ts/piano/Classes/SongsManager.ts
   var SongsManager = class {
     constructor() {
+      this.currentLine = 0;
+      this.bpm = 100;
+      Transport2.bpm.value = this.bpm;
     }
     loadSong(song) {
       this.song = song;
       Logger.log("Song loaded:", {title: this.song.title, song: this.song}, "SongsController (loadSong)");
       this.lines = this.processSong(this.song);
-      console.log(this.lines);
     }
     setBPM(bpm) {
-      Transport2.bpm.value = bpm;
+      this.bpm = bpm;
+      Transport2.bpm.value = this.bpm;
       this.lines = this.processSong(this.song);
       Logger.log("Bpm changed:", {"BPM in Tone context": Transport2.bpm.value}, "SongsManager (setBPM)");
     }
@@ -15980,7 +15986,6 @@
       this.currentNote = note;
     }
     init() {
-      this.currentLine = 0;
       this.progress = 0;
       this.prevNote = " ";
       this.currentNote = this.getNote(this.currentLine, this.progress);
@@ -16006,31 +16011,26 @@
         "Next Note": this.nextNote
       }, "SongsController (checkPlayerNote)");
     }
-    processRestNotation(restNotationValue) {
-      let restValue = "";
-      for (let i = 0; i < restNotationValue.length; i++) {
-        if (restNotationValue.charAt(i) !== "r")
-          restValue += restNotationValue.charAt(i);
-      }
-      return restValue;
+    removeRestNotation(restNotationString) {
+      return restNotationString.replace(/r/g, "");
     }
     removeRestsFromDurations(duration_array) {
       let newDurations = [];
-      for (let i = 0; i < duration_array.length; i++) {
-        if (duration_array[i].includes("r") === false) {
-          newDurations.push(duration_array[i]);
-        }
-      }
+      duration_array.forEach((duration) => {
+        if (!duration.includes("r"))
+          newDurations.push(duration);
+      });
       return newDurations;
     }
     processDurationArrayIntoSingleDuration(duration_array) {
       let single_duration = 0;
       let duration;
       let is_rest = false;
-      for (let i = 0; i < duration_array.length; i++) {
-        single_duration = Time(single_duration + Time(duration_array[i]));
-        is_rest = duration_array[i].includes("r") ? true : false;
-      }
+      duration_array.forEach((duration2) => {
+        single_duration = Time(single_duration + Time(duration2));
+        console.log("Single Duration (Song Manager)", single_duration);
+        is_rest = duration_array[i].includes("r");
+      });
       duration = single_duration.toNotation();
       if (is_rest) {
         duration = duration + "r";
@@ -16039,14 +16039,14 @@
     }
     processDurationArrays(durs) {
       let durations = [];
-      for (let i = 0; i < durs.length; i++) {
-        let current_dur_is_array = typeof durs[i] === "object" ? true : false;
+      durs.forEach((duration) => {
+        let current_dur_is_array = typeof duration === "object";
         if (current_dur_is_array) {
-          durations.push(this.processDurationArrayIntoSingleDuration(durs[i]));
+          durations.push(this.processDurationArrayIntoSingleDuration(duration));
         } else {
-          durations.push(durs[i]);
+          durations.push(duration);
         }
-      }
+      });
       return durations;
     }
     processDurationNotation(duration_array, startTime) {
@@ -16059,21 +16059,21 @@
       let accum;
       let current_duration = 0;
       let current_duration_is_rest = false;
-      for (let i = 0; i < duration_array.length; i++) {
-        let current_dur_is_array = typeof duration_array[i] === "object" ? true : false;
+      for (let i2 = 0; i2 < duration_array.length; i2++) {
+        let current_dur_is_array = typeof duration_array[i2] === "object";
         if (current_dur_is_array) {
-          for (let idx = 0; idx < duration_array[i].length; idx++) {
-            let array_value = duration_array[i][idx];
+          for (let idx = 0; idx < duration_array[i2].length; idx++) {
+            let array_value = duration_array[i2][idx];
             current_duration = current_duration + Time(array_value);
-            current_duration_is_rest = duration_array[i][idx].includes("r");
+            current_duration_is_rest = duration_array[i2][idx].includes("r");
           }
         } else {
-          current_duration = duration_array[i];
-          current_duration_is_rest = duration_array[i].includes("r");
+          current_duration = duration_array[i2];
+          current_duration_is_rest = duration_array[i2].includes("r");
         }
-        if (i < duration_array.length - 2 && typeof (duration_array[i + 1] === "string") && duration_array[i + 1].includes("r")) {
+        if (i2 < duration_array.length - 2 && typeof (duration_array[i2 + 1] === "string") && duration_array[i2 + 1].includes("r")) {
           nextIsRest = true;
-        } else if (i < duration_array.length - 2 && typeof (duration_array[i + 1] === "object") && duration_array[i + 1][0].includes("r")) {
+        } else if (i2 < duration_array.length - 2 && typeof (duration_array[i2 + 1] === "object") && duration_array[i2 + 1][0].includes("r")) {
           nextIsRest = true;
         } else {
           nextIsRest = false;
@@ -16085,9 +16085,9 @@
           }
           t = Time(accum.valueOf());
         } else {
-          restValue = this.processRestNotation(current_duration);
+          restValue = this.removeRestNotation(current_duration);
           accum = Time(t + Time(restValue));
-          if (i === 0) {
+          if (i2 === 0) {
             t_array = [];
           }
           if (!nextIsRest) {
@@ -16112,25 +16112,25 @@
       let all_durations = this.processDurationArrays(durations);
       let myDurations = this.removeRestsFromDurations(all_durations);
       let j = 0;
-      for (let i = 0; i < pitches.length; i++) {
+      for (let i2 = 0; i2 < pitches.length; i2++) {
         j = j % time_array.length;
         rhythmValue = time_array[j];
-        if (typeof pitches[i] == "string") {
+        if (typeof pitches[i2] == "string") {
           let oneNote = {};
           Object.defineProperties(oneNote, {
             time: {
               value: rhythmValue
             },
             note: {
-              value: pitches[i]
+              value: pitches[i2]
             },
             duration: {
-              value: myDurations[i]
+              value: myDurations[i2]
             }
           });
           melody.push(oneNote);
         } else {
-          let chordLength = pitches[i].length;
+          let chordLength = pitches[i2].length;
           for (let index = 0; index < chordLength; index++) {
             let oneNote = {};
             Object.defineProperties(oneNote, {
@@ -16138,17 +16138,17 @@
                 value: rhythmValue
               },
               note: {
-                value: pitches[i][index]
+                value: pitches[i2][index]
               },
               duration: {
-                value: myDurations[i]
+                value: myDurations[i2]
               }
             });
             melody.push(oneNote);
           }
         }
         j++;
-        lastDuration = myDurations[i];
+        lastDuration = myDurations[i2];
       }
       let totalTime = rhythmValue + TransportTime(lastDuration).toSeconds();
       return melody;
@@ -16180,6 +16180,10 @@
     pitches: ["D5", "D5", "D5", "D5", "E5", "E5", "E5", "D5", "D5", "C5"],
     durations: ["4n", "8n", "4n", "8n", "4n", "8n", "4n", "8n", "8n", "2n"]
   };
+  var chorus = {
+    pitches: ["E4", "G4", "A4", "A4", "A4", "G4", "E4", "E4", "E4", "G4", "A4", "A4", "A4", "G4", "E4", "F4", "E4", "D4", "C4", "C4"],
+    durations: ["4n", "8n", "4n", "2n", "4n", "8n", "2n", "2n", "4n", "8n", "4n", "2n", "4n", "8n", "2n", "8n", "8n", "2n", "8n", "2n"]
+  };
   var HALLELUJAH = {
     title: "Hallelujah",
     lines: [
@@ -16188,7 +16192,8 @@
       line3,
       line4,
       line5,
-      line6
+      line6,
+      chorus
     ]
   };
 
