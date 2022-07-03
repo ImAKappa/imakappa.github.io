@@ -1,7 +1,0 @@
-{{ $title := default $.Site.Title .Title}}
-{{ with .Params.youtube }}
-<div class="embed video-player">
-  <iframe class="youtube-player" type="text/html" width="640" height="385" src="https://www.youtube.com/embed/{{ . }}" allowfullscreen frameborder="0" title="{{ $title }}">
-  </iframe>
-</div>
-{{ end }}
