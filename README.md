@@ -1,29 +1,37 @@
-# create-svelte
+# imakappa.github.io
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+<details><summary>## Dev Notes</summary>
 
-## Creating a project
+My Github Pages site. This project is my way of teaching myself web development.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Tools & Tech I have learned so far in the process of making this website (roughly in order):
 
-```bash
-# create a new project in the current directory
-npm init svelte
+### 2020: Jekyll
+    HTML/CSS
+    Jekyll (this site used to be made with Jekyll)
+        Ruby & Gems
+        SEO, Google Analytics, Google Search Console
+        Image optimization
+    Basic JavaScript
+    SCSS/Some more advanced CSS
 
-# create a new project in my-app
-npm init svelte my-app
-```
+### 2021: Hugo Rewrite
+    Hugo
+        Go Modules/ Go Templates
+        Minification/ JS processing (ESBuild)
+    TypeScript/Some more advanced JavaScript
+        Node & NPM
+    Github Actions
+    
+### 2022: Major rewrite
 
-## Developing
+By this point I've become a little better at coding and designing software, and at least a teeny bit more familiar with web frameworks (and a whole lot better a throwing my errors at a search engine).
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Tech stack:
+- **SvelteKit**: Made a few projects with svelte and loved it, so obviously I have to use it for my site.
+- **TailwindCSS**: All my life I've heard that inline CSS is a terrible idea. Turns out that was a big fat lie. 
+- **TypeScript**: You can never have enough types
+</details>
 
 ## Building
 
