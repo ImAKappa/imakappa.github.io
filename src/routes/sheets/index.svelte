@@ -41,12 +41,14 @@
 		{uid: '1234', music: {title: 'Golden Wind 2: Electric Boogaloo', artists: ['Yugo Kanno', 'Ur mum'], releaseDate: new Date('December 18, 2019')}, arrangement: {createdAt: new Date(), arranger: 'Moi', difficulty: SheetDifficulty.ADVANCED}},
 	
 	];
+
 </script>
 
 <svelte:head>
 	<title>Sheet Music</title>
 	<meta name="description" content="Sheet music" />
 </svelte:head>
+
 
 <div class="grid grid-cols-3 bg-stone-900">
 	<!-- SheetMusic Info Card -->

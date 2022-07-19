@@ -11,34 +11,13 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
+<section class="flex flex-1 flex-col items-center">
+	<h1 class="text-center text-4xl font-bold text-green-600 m-4"><a href="/" target="_blank" rel="noopener noreferrer">ImAKappa</a></h1>
 
 	<Counter />
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
 	h1 {
 		width: 100%;
 	}

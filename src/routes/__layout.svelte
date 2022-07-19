@@ -5,7 +5,7 @@
 
 <Header />
 
-<main>
+<main class="bg-zinc-900">
 	<slot />
 </main>
 
